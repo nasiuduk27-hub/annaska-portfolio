@@ -1,0 +1,154 @@
+/* 1. Import Tailwind v4 */
+@import "tailwindcss";
+
+/* 2. Definisi Tema */
+@theme {
+  --color-brand-purple: #7000F6;
+  --color-text-dark: #1F2937;
+  --font-inter: 'Inter', sans-serif;
+}
+
+/* 3. Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-inter bg-[#F9F9F9] text-text-dark antialiased;
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  /* Custom Highlight Warna */
+  ::selection {
+    @apply bg-brand-purple/20 text-brand-purple;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* 4. Components & Utilities */
+@layer utilities {
+  /* Fix Navbar - Box Shadow & Blur */
+  .navbar-fixed {
+    @apply fixed z-[9999] bg-white/70 backdrop-blur-md shadow-sm;
+    /* Box shadow tipis di bagian bawah */
+    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.05);
+  }
+
+  /* Wave Animation */
+  @keyframes wave {
+    0%, 100% { transform: rotate(0.0deg); }
+    10%, 30%, 50%, 70%, 90% { transform: rotate(14.0deg); }
+    20%, 40%, 60%, 80% { transform: rotate(-10.0deg); }
+  }
+
+  .animate-wave {
+    animation: wave 2s infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+  }
+
+  /* Hamburger Logic */
+  .hamburger-line {
+    @apply w-[30px] h-[2px] my-2 block bg-black transition-all duration-300;
+  }
+
+  .hamburger-active > span:nth-child(1) { @apply origin-top-left rotate-45; }
+  .hamburger-active > span:nth-child(2) { @apply scale-0; }
+  .hamburger-active > span:nth-child(3) { @apply origin-bottom-left -rotate-45; }
+
+  /* Bento Card Style (Purplefolio Look) */
+  .bento-card {
+    @apply bg-white border border-gray-100 rounded-[2rem] p-8 
+           transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/5 
+           hover:-translate-y-1;
+  }
+
+  /* Input Style */
+  .input-framer {
+    @apply bg-white border border-gray-200 p-4 rounded-2xl outline-none 
+           transition-all duration-300 focus:border-brand-purple 
+           focus:ring-4 focus:ring-brand-purple/10;
+  }
+
+  /* Image Hover Effect */
+  .img-reveal {
+    @apply grayscale hover:grayscale-0 transition-all duration-700 object-cover;
+  }
+}
+
+@layer utilities {
+  /* Keyframes untuk pergerakan horizontal */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Bergeser setengah panjang container */
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content; /* Pastikan container selebar kontennya */
+    animation: marquee 15s linear infinite;
+  }
+
+  /* Berhenti saat di-hover (opsional, ala Framer) */
+  /* .animate-marquee:hover {
+    animation-play-state: paused;
+  } */
+
+  .stack-card {
+    @apply flex items-center gap-3 bg-white border border-gray-100 px-6 py-4 rounded-2xl shadow-sm mx-3;
+  }
+}
+
+@layer utilities {
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+  }
+
+  .animate-marquee-reverse {
+    display: flex;
+    width: max-content;
+    animation: marquee-reverse 25s linear infinite;
+  }
+
+  .stack-card {
+    /* whitespace-nowrap memastikan tulisan tetap 1 baris di dalam kotak */
+    @apply flex items-center bg-white border border-gray-100 px-8 py-4 rounded-2xl shadow-sm mx-3 whitespace-nowrap min-w-max;
+  }
+}
+
+.nav-link {
+  @apply text-base text-text-dark py-2 mx-3 flex transition duration-300;
+}
+
+.nav-link:hover {
+  @apply text-brand-purple;
+}
+
+.nav-active {
+  @apply text-brand-purple font-bold;
+}
+
+.nav-icon {
+  @apply text-text-dark py-2 mx-3 flex transition duration-300;
+}
+
+.nav-icon-active {
+  @apply text-brand-purple;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Annaska Andrizky</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link href="./dist/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="./src/input.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4, h5, h6, .font-outfit { font-family: 'Outfit', sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-text-dark antialiased overflow-x-hidden">
+  <!-- Navbar Start -->
+  <header id="header" class="bg-transparent absolute top-0 left-0 w-full z-10 flex items-center transition duration-300">
+    <div class="container mx-auto">
+      <div class="flex items-center justify-between relative px-4">
+        <div class="flex-none">
+          <a href="home.html" class="text-lg font-bold text-gray-900 tracking-tighter block py-6">
+            Annaskaa<span class="text-brand-purple">.</span>
+          </a>
+        </div>
+        <nav id="nav-menu" class="hidden absolute py-5 bg-white rounded-lg shadow-lg max-w-62.5 w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none lg:flex-1">
+          <ul class="flex flex-col lg:flex-row lg:items-center lg:w-full">
+            <div class="flex flex-col lg:flex-row lg:flex-1 lg:justify-center lg:gap-1">
+              <li class="group">
+                <a href="home.html" class="text-base py-2 mx-3 flex transition duration-300 text-text-dark group-hover:text-brand-purple">Home</a>
+              </li>
+              <li class="group">
+                <a href="home.html#project" class="text-base text-text-dark py-2 mx-3 flex group-hover:text-brand-purple transition duration-300">Project</a>
+              </li>
+              <li class="group">
+                <a href="about.html" class="text-base py-2 mx-3 flex transition duration-300 text-text-dark group-hover:text-brand-purple">About</a>
+              </li>
+            </div>
+            <li class="group">
+              <a href="contact.html" class="text-base py-2 mx-3 flex transition duration-300 text-brand-purple font-bold">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- Navbar End -->
+  <main>
+    <section id="contact" class="pt-36 pb-20 min-h-screen flex items-center">
+      <div class="container mx-auto px-4 lg:px-20">
+        <div class="flex flex-wrap items-center">
+          <!-- Kolom Kiri: Teks & Kontak -->
+          <div class="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
+            <h2 class="text-brand-purple font-bold text-xl uppercase tracking-[0.3em] mb-6">Contact Me</h2>
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-extrabold text-text-dark leading-[0.9] tracking-tighter mb-12">
+              Get In <span class="text-gray-400 italic font-serif">Touch</span><span class="text-brand-purple">.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-500 max-w-xl leading-relaxed mb-16">
+              I'm currently available for freelance work. If you have a project that you want to get started, let's talk and build something amazing together.
+            </p>
+            <div class="flex flex-col gap-10">
+              <!-- Email Link -->
+              <div class="group flex items-center gap-6">
+                <div class="w-16 h-16 rounded-full border border-gray-100 flex items-center justify-center group-hover:border-brand-purple group-hover:bg-brand-purple transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-white transition-colors"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Email Me</p>
+                  <a href="mailto:hello@annaska.com" class="text-2xl md:text-3xl font-bold text-text-dark hover:text-brand-purple transition">hello@annaska.com</a>
+                </div>
+              </div>
+              <!-- Social Links -->
+              <div class="group flex items-center gap-6">
+                <div class="w-16 h-16 rounded-full border border-gray-100 flex items-center justify-center group-hover:border-brand-purple group-hover:bg-brand-purple transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-white transition-colors"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </div>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Follow Me</p>
+                  <div class="flex gap-6 mt-1">
+                    <a href="#" class="text-xl font-bold text-text-dark hover:text-brand-purple transition">Instagram</a>
+                    <a href="#" class="text-xl font-bold text-text-dark hover:text-brand-purple transition">LinkedIn</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer Start -->
+  <footer class="bg-[#F9F9F9] py-16 border-t border-gray-100">
+    <div class="container mx-auto px-4 lg:px-20">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+          <a href="home.html" class="text-2xl font-black tracking-tighter text-text-dark mb-4 inline-block">
+            Annaska<span class="text-brand-purple">.</span>
+          </a>
+          <p class="text-gray-500 max-w-xs">
+            Building digital experiences with passion and operational precision.
+          </p>
+        </div>
+        <div class="flex gap-10">
+          <a href="home.html" class="text-sm font-bold text-gray-400 hover:text-text-dark transition">Home</a>
+          <a href="about.html" class="text-sm font-bold text-gray-400 hover:text-text-dark transition">About</a>
+          <a href="contact.html" class="text-sm font-bold text-gray-400 hover:text-text-dark transition">Contact</a>
+        </div>
+        <div class="text-center md:text-right">
+          <p class="text-sm text-gray-400 mb-2">&copy; 2026 All rights reserved.</p>
+          <p class="text-sm font-medium text-gray-600">
+            Made with <span class="text-brand-purple">💜</span> by Annaska Andrizky
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+</body>
+</html>

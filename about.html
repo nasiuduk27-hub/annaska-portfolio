@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Annaska Andrizky</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link href="./dist/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="./src/input.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4, h5, h6, .font-outfit { font-family: 'Outfit', sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-text-dark antialiased overflow-x-hidden">
+  <!-- Navbar Start -->
+  <header id="header" class="bg-transparent absolute top-0 left-0 w-full z-10 flex items-center transition duration-300">
+    <div class="container mx-auto">
+      <div class="flex items-center justify-between relative px-4">
+        <div class="flex-none">
+          <a href="home.html" class="text-lg font-bold text-gray-900 tracking-tighter block py-6">
+            Annaskaa<span class="text-brand-purple">.</span>
+          </a>
+        </div>
+        <nav id="nav-menu" class="hidden absolute py-5 bg-white rounded-lg shadow-lg max-w-62.5 w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none lg:flex-1">
+          <ul class="flex flex-col lg:flex-row lg:items-center lg:w-full">
+            <div class="flex flex-col lg:flex-row lg:flex-1 lg:justify-center lg:gap-1">
+              <li class="group">
+                <a href="home.html" class="text-base py-2 mx-3 flex transition duration-300 text-text-dark group-hover:text-brand-purple">Home</a>
+              </li>
+              <li class="group">
+                <a href="home.html#project" class="text-base text-text-dark py-2 mx-3 flex group-hover:text-brand-purple transition duration-300">Project</a>
+              </li>
+              <li class="group">
+                <a href="about.html" class="text-base py-2 mx-3 flex transition duration-300 text-brand-purple font-bold">About</a>
+              </li>
+            </div>
+            <li class="group">
+              <a href="contact.html" class="text-base py-2 mx-3 flex transition duration-300 text-text-dark group-hover:text-brand-purple">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- Navbar End -->
+  <main class="pt-32 pb-20 bg-[#F9F9F9]">
+    <div class="container mx-auto px-4 lg:px-20">
+      <section class="mb-20">
+        <h2 class="text-7xl md:text-9xl font-extrabold tracking-tighter text-gray-900 mb-10">
+          About me<span class="text-brand-purple">.</span>
+        </h2>
+        <div class="max-w-6xl border-l-8 border-brand-purple pl-8 py-2">
+          <p class="text-2xl md:text-4xl text-gray-700 leading-[1.3] tracking-tight font-medium mb-10">
+            Developing beautiful and functional websites is what I love doing.
+          </p>
+        </div>
+        <div class="mt-12 max-w-full">
+          <p class="text-xl md:text-2xl text-gray-600 leading-relaxed mb-6">
+            I am a passionate web developer with a strong background in technical support and UI/UX design.
+          </p>
+          <p class="text-xl md:text-2xl text-gray-600 leading-relaxed">
+            My expertise in both front-end and back-end development allows me to bring ideas to life.
+          </p>
+        </div>
+      </section>
+      <!-- GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <!-- LEFT -->
+        <div>
+          <h3 class="text-3xl font-bold mb-6">My Stack.</h3>
+          <!-- skills 1 start (Seamless Marquee) -->
+          <div class="flex overflow-hidden mb-6">
+            <div class="animate-marquee py-2 flex items-center">
+              <!-- Set 1 -->
+              <div class="stack-card"><span class="font-bold text-text-dark">Technical Support</span></div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star text-brand-purple" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/></svg>
+              <div class="stack-card"><span class="font-bold text-text-dark">UI/UX Expertise</span></div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star text-brand-purple" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/></svg>
+              <div class="stack-card"><span class="font-bold text-text-dark">Web Development</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- RIGHT -->
+        <div>
+          <h3 class="text-3xl font-bold mb-6">Experience.</h3>
+          <ul class="list-disc pl-6 text-xl text-gray-600">
+            <li>Frontend Developer at XYZ Company</li>
+            <li>UI/UX Designer at ABC Studio</li>
+            <li>Technical Support at DEF Corp</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer Start -->
+  <footer class="bg-[#F9F9F9] py-16 border-t border-gray-100">
+    <div class="container mx-auto px-4 lg:px-20">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+          <a href="home.html" class="text-2xl font-black tracking-tighter text-text-dark mb-4 inline-block">
+            Annaska<span class="text-brand-purple">.</span>
+          </a>
+          <p class="text-gray-500 max-w-xs">
+            Building digital experiences with passion and operational precision.
+          </p>
+        </div>
+        <div class="flex gap-10">
+          <a href="home.html" class="text-sm font-bold text-gray-400 hover:text-text-dark transition">Home</a>
+          <a href="about.html" class="text-sm font-bold text-gray-400 hover:text-text-dark transition">About</a>
+          <a href="contact.html" class="text-sm font-bold text-gray-400 hover:text-text-dark transition">Contact</a>
+        </div>
+        <div class="text-center md:text-right">
+          <p class="text-sm text-gray-400 mb-2">&copy; 2026 All rights reserved.</p>
+          <p class="text-sm font-medium text-gray-600">
+            Made with <span class="text-brand-purple">💜</span> by Annaska Andrizky
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+</body>
+</html>

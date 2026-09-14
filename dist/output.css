@@ -263,6 +263,12 @@
   .top-1\/2 {
     top: calc(1 / 2 * 100%);
   }
+  .top-10 {
+    top: calc(var(--spacing) * 10);
+  }
+  .top-14 {
+    top: calc(var(--spacing) * 14);
+  }
   .top-full {
     top: 100%;
   }
@@ -271,6 +277,12 @@
   }
   .right-6 {
     right: calc(var(--spacing) * 6);
+  }
+  .right-10 {
+    right: calc(var(--spacing) * 10);
+  }
+  .right-16 {
+    right: calc(var(--spacing) * 16);
   }
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
@@ -416,9 +428,6 @@
   .aspect-\[4\/5\] {
     aspect-ratio: 4/5;
   }
-  .aspect-\[16\/10\] {
-    aspect-ratio: 16/10;
-  }
   .aspect-video {
     aspect-ratio: var(--aspect-video);
   }
@@ -448,6 +457,12 @@
   }
   .h-16 {
     height: calc(var(--spacing) * 16);
+  }
+  .h-\[390px\] {
+    height: 390px;
+  }
+  .h-\[540px\] {
+    height: 540px;
   }
   .h-full {
     height: 100%;
@@ -488,6 +503,9 @@
   .w-\[90\%\] {
     width: 90%;
   }
+  .w-\[340px\] {
+    width: 340px;
+  }
   .w-full {
     width: 100%;
   }
@@ -500,8 +518,8 @@
   .max-w-62\.5 {
     max-width: calc(var(--spacing) * 62.5);
   }
-  .max-w-\[520px\] {
-    max-width: 520px;
+  .max-w-\[360px\] {
+    max-width: 360px;
   }
   .max-w-full {
     max-width: 100%;
@@ -514,9 +532,6 @@
   }
   .max-w-xs {
     max-width: var(--container-xs);
-  }
-  .flex-1 {
-    flex: 1;
   }
   .flex-none {
     flex: none;
@@ -534,24 +549,8 @@
     --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
-  .translate-x-2 {
-    --tw-translate-x: calc(var(--spacing) * 2);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .translate-x-3 {
-    --tw-translate-x: calc(var(--spacing) * 3);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
   .-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .translate-y-2 {
-    --tw-translate-y: calc(var(--spacing) * 2);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .translate-y-3 {
-    --tw-translate-y: calc(var(--spacing) * 3);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .scale-125 {
@@ -622,6 +621,13 @@
       --tw-space-y-reverse: 0;
       margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
       margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-4 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
   .space-y-8 {
@@ -817,9 +823,6 @@
   }
   .p-4 {
     padding: calc(var(--spacing) * 4);
-  }
-  .p-5 {
-    padding: calc(var(--spacing) * 5);
   }
   .p-6 {
     padding: calc(var(--spacing) * 6);
@@ -1386,34 +1389,14 @@
       left: calc(65px * -1);
     }
   }
-  .md\:col-span-2 {
-    @media (width >= 48rem) {
-      grid-column: span 2 / span 2;
-    }
-  }
   .md\:block {
     @media (width >= 48rem) {
       display: block;
     }
   }
-  .md\:hidden {
-    @media (width >= 48rem) {
-      display: none;
-    }
-  }
-  .md\:aspect-auto {
-    @media (width >= 48rem) {
-      aspect-ratio: auto;
-    }
-  }
   .md\:w-96 {
     @media (width >= 48rem) {
       width: calc(var(--spacing) * 96);
-    }
-  }
-  .md\:w-\[40\%\] {
-    @media (width >= 48rem) {
-      width: 40%;
     }
   }
   .md\:w-\[380px\] {
@@ -1457,16 +1440,6 @@
   .md\:justify-between {
     @media (width >= 48rem) {
       justify-content: space-between;
-    }
-  }
-  .md\:gap-x-4 {
-    @media (width >= 48rem) {
-      column-gap: calc(var(--spacing) * 4);
-    }
-  }
-  .md\:gap-y-2 {
-    @media (width >= 48rem) {
-      row-gap: calc(var(--spacing) * 2);
     }
   }
   .md\:p-8 {
@@ -2293,7 +2266,7 @@
   border-radius: 9999px;
   background-color: transparent;
   color: #7000F6;
-  padding: 10px 24px;
+  padding: 12px 24px;
   font-size: 1rem;
   font-weight: 800;
   transition: all 200ms ease;

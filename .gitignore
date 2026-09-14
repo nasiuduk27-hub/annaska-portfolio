@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# OS & editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+
+# Logs & temp
+*.log
+opencode-tool-output/

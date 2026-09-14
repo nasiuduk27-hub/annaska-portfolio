@@ -3,12 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Annaska Andrizky | Frontend Developer</title>
+  <title>Annaska Andrizky | Full Stack Developer</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
 
   <!-- CSS -->
   <link href="./dist/output.css" rel="stylesheet">
@@ -24,7 +35,7 @@
   </style>
 </head>
 
-<body class="bg-white text-text-dark antialiased overflow-x-hidden">
+<body class="bg-white text-text-dark antialiased overflow-x-hidden transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100">
 
   <?php include 'components/navbar.php'; ?>
 

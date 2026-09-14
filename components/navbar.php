@@ -7,57 +7,74 @@ $currentPage = $_GET['page'] ?? 'home';
     <div class="flex items-center justify-between relative px-4">
       
       <div class="flex-none">
-        <a href="index.php?page=home" class="text-lg font-bold text-gray-900 tracking-tighter block py-6">
+        <a href="index.php?page=home" class="text-lg font-bold text-gray-900 tracking-tighter block py-6 transition-colors duration-300 dark:text-white">
           Annaskaa<span class="text-brand-purple">.</span>
         </a>
       </div>
 
-      <nav id="nav-menu" class="hidden absolute py-5 bg-white rounded-lg shadow-lg max-w-62.5 w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none lg:flex-1">
+      <nav id="nav-menu" class="hidden absolute py-5 bg-white rounded-lg shadow-lg max-w-62.5 w-full right-4 top-full transition-colors duration-300 dark:bg-gray-900 dark:shadow-gray-950/40 lg:block lg:static lg:bg-transparent lg:dark:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none lg:flex-1">
         <ul class="flex flex-col lg:flex-row lg:items-center lg:w-full">
           
           <div class="flex flex-col lg:flex-row lg:flex-1 lg:justify-center lg:gap-1">
             <li class="group">
               <a href="index.php?page=home" 
-                 class="text-base py-2 mx-3 flex transition duration-300 <?= ($currentPage == 'home') ? 'text-brand-purple font-bold' : 'text-text-dark group-hover:text-brand-purple' ?>">
+                 class="text-base py-2 mx-3 flex transition duration-300 <?= ($currentPage == 'home') ? 'text-brand-purple font-bold' : 'text-text-dark dark:text-gray-100 group-hover:text-brand-purple' ?>">
                 Home
               </a>
             </li>
             <li class="group">
-              <a href="index.php?page=home#project" 
-                 class="text-base text-text-dark py-2 mx-3 flex group-hover:text-brand-purple transition duration-300">
+              <a href="index.php?page=project" 
+                 class="text-base py-2 mx-3 flex transition duration-300 <?= ($currentPage == 'project') ? 'text-brand-purple font-bold' : 'text-text-dark dark:text-gray-100 group-hover:text-brand-purple' ?>">
                 Project
               </a>
             </li>
             <li class="group">
               <a href="index.php?page=about" 
-                 class="text-base py-2 mx-3 flex transition duration-300 <?= ($currentPage == 'about') ? 'text-brand-purple font-bold' : 'text-text-dark group-hover:text-brand-purple' ?>">
+                 class="text-base py-2 mx-3 flex transition duration-300 <?= ($currentPage == 'about') ? 'text-brand-purple font-bold' : 'text-text-dark dark:text-gray-100 group-hover:text-brand-purple' ?>">
                 About
+              </a>
+            </li>
+            <li class="group">
+              <a href="index.php?page=contact" 
+                 class="text-base py-2 mx-3 flex transition duration-300 <?= ($currentPage == 'contact') ? 'text-brand-purple font-bold' : 'text-text-dark dark:text-gray-100 group-hover:text-brand-purple' ?>">
+                Contact
               </a>
             </li>
           </div>
 
-         <li class="group">
-  <a href="index.php?page=contact" 
-     class="text-base py-2 mx-3 flex transition duration-300 <?= ($currentPage == 'contact') ? 'text-brand-purple font-bold' : 'text-text-dark group-hover:text-brand-purple' ?>">
-
-    <!-- Mobile / Hamburger mode -->
-    <span class="lg:hidden inline-flex items-center justify-center px-4 py-2 rounded-full bg-brand-purple text-white font-semibold">
-      Get in touch
-    </span>
-
-    <!-- Desktop / Full wide mode -->
-    <svg role="img" width="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block fill-current">
-      <title>Rocket.Chat</title>
-      <path d="M22.909 8.381c-.651-1.01-1.564-1.905-2.71-2.66-2.215-1.457-5.127-2.259-8.197-2.259-1.027 0-2.038.09-3.018.266a9.978 9.978 0 0 0-2.075-1.53C4.11.803 1.646 1.323.4 1.77a.598.598 0 0 0-.233.977c.879.907 2.332 2.698 1.974 4.327C.753 8.493 0 10.203 0 11.982c0 1.815.752 3.524 2.142 4.942.357 1.63-1.096 3.421-1.975 4.328a.597.597 0 0 0 .233.977c1.245.448 3.71.968 6.508-.427a10.031 10.031 0 0 0 2.075-1.53 17.06 17.06 0 0 0 3.018.265c3.071 0 5.983-.801 8.197-2.257 1.147-.755 2.06-1.65 2.71-2.661C23.633 14.493 24 13.28 24 12.017c.001-1.297-.366-2.508-1.091-3.636zM11.875 18.437c-1.328 0-2.594-.171-3.748-.48l-.844.81a7.716 7.716 0 0 1-1.556 1.154 6.118 6.118 0 0 1-2.2.621c.042-.074.079-.149.119-.224.844-1.553 1.073-2.948.683-4.186-1.382-1.086-2.212-2.476-2.212-3.99 0-3.476 4.369-6.294 9.757-6.294s9.757 2.818 9.757 6.294c.001 3.477-4.367 6.295-9.756 6.295zm-3.229-6.315c0 .788-.644 1.427-1.438 1.427a1.433 1.433 0 0 1-1.438-1.427c0-.788.644-1.426 1.438-1.426.794 0 1.438.638 1.438 1.426zm4.627 0c0 .788-.644 1.427-1.438 1.427a1.433 1.433 0 0 1-1.438-1.427c0-.788.644-1.426 1.438-1.426.794 0 1.438.638 1.438 1.426zm4.63 0c0 .788-.645 1.427-1.439 1.427a1.433 1.433 0 0 1-1.438-1.427c0-.788.644-1.426 1.438-1.426.794 0 1.438.638 1.438 1.426z"/>
-    </svg>
-
-  </a>
-</li>
+          <div class="flex flex-col lg:flex-row lg:items-center lg:gap-2">
+            <li class="group">
+              <a href="https://github.com/nasiuduk27-hub" aria-label="GitHub" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white/70 text-text-dark transition duration-300 hover:border-brand-purple hover:text-brand-purple dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:hover:border-brand-purple dark:hover:text-brand-purple">
+                <svg role="img" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current">
+                  <title>GitHub</title>
+                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+              </a>
+            </li>
+            <li class="group">
+              <a href="https://www.linkedin.com/in/annaska-andrizky/" aria-label="LinkedIn" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white/70 text-text-dark transition duration-300 hover:border-brand-purple hover:text-brand-purple dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:hover:border-brand-purple dark:hover:text-brand-purple">
+                <svg role="img" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current">
+                  <title>LinkedIn</title>
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.447-2.136 2.942v5.664H9.351V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.371 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.559V9h3.555v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                </svg>
+              </a>
+            </li>
+          </div>
         </ul>
       </nav>
 
-      <div class="flex items-center lg:hidden">
-        <button id="hamburger" name="hamburger" type="button" class="block">
+      <div class="flex items-center gap-3 ml-2 lg:ml-3">
+        <button id="theme-toggle" type="button" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white/70 text-text-dark transition duration-300 hover:border-brand-purple hover:text-brand-purple dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:hover:border-brand-purple dark:hover:text-brand-purple" aria-label="Toggle dark mode">
+          <svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+          </svg>
+          <svg id="theme-toggle-light-icon" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.36 6.36-1.42-1.42M7.06 7.06 5.64 5.64m12.72 0-1.42 1.42M7.06 16.94l-1.42 1.42" />
+            <circle cx="12" cy="12" r="4" />
+          </svg>
+        </button>
+
+        <button id="hamburger" name="hamburger" type="button" class="block lg:hidden">
           <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
           <span class="hamburger-line transition duration-300 ease-in-out"></span>
           <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>

@@ -25,15 +25,116 @@ if (container && photo) {
     });
 }
 
+function getPreferredTheme() {
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme) {
+        return savedTheme;
+    }
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function applyTheme(theme) {
+    const isDark = theme === 'dark';
+    const toggleButton = document.getElementById('theme-toggle');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+    document.documentElement.classList.toggle('dark', isDark);
+
+    if (toggleButton) {
+        toggleButton.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+
+    if (lightIcon && darkIcon) {
+        lightIcon.classList.toggle('hidden', !isDark);
+        darkIcon.classList.toggle('hidden', isDark);
+    }
+}
+
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+
+    applyTheme(getPreferredTheme());
+
+    if (!themeToggle) return;
+
+    themeToggle.addEventListener('click', () => {
+        const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+
+        localStorage.setItem('theme', nextTheme);
+        applyTheme(nextTheme);
+    });
+}
+
+// Scroll Reveal
+function reveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    reveals.forEach(reveal => {
+        observer.observe(reveal);
+    });
+}
+
+// Page Transition Logic
+function handlePageTransitions() {
+    const links = document.querySelectorAll('a[href*="index.php?page="]');
+    const main = document.querySelector('main');
+
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            const url = new URL(href, window.location.origin);
+            
+            // Don't animate if it's an anchor on the same page or the exact same page
+            if (url.pathname === window.location.pathname && url.search === window.location.search) {
+                if (url.hash) return; // Let default anchor behavior happen
+                e.preventDefault(); // Already on this page
+                return;
+            }
+
+            e.preventDefault();
+            main.classList.add('page-exit');
+            
+            setTimeout(() => {
+                window.location.href = href;
+            }, 500);
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    reveal();
+    handlePageTransitions();
+    initThemeToggle();
+    
+    // Initial page load animation
+    const main = document.querySelector('main');
+    if (main) {
+        main.classList.add('page-transition');
+    }
+});
+
 const hamburger = document.querySelector('#hamburger');
 const navMenu = document.querySelector('#nav-menu');
 
-hamburger.addEventListener('click', function() {
-    this.classList.toggle('hamburger-active');
-    navMenu.classList.toggle('hidden');
-
-
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('hamburger-active');
+        navMenu.classList.toggle('hidden');
+    });
+}
 
 // navbar scroll effect
 window.onscroll = function() {

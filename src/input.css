@@ -1,5 +1,6 @@
 /* 1. Import Tailwind v4 */
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* 2. Definisi Tema */
 @theme {
@@ -15,7 +16,7 @@
   }
 
   body {
-    @apply font-inter bg-[#F9F9F9] text-text-dark antialiased;
+    @apply font-inter bg-[#F9F9F9] text-text-dark antialiased transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100;
     animation: fadeIn 0.8s ease-out;
   }
 
@@ -34,9 +35,13 @@
 @layer utilities {
   /* Fix Navbar - Box Shadow & Blur */
   .navbar-fixed {
-    @apply fixed z-[9999] bg-white/70 backdrop-blur-md shadow-sm;
+    @apply fixed z-[9999] bg-white/70 backdrop-blur-md shadow-sm transition-colors duration-300 dark:bg-gray-950/80 dark:shadow-none;
     /* Box shadow tipis di bagian bawah */
     box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .dark .navbar-fixed {
+    box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.08);
   }
 
   /* Wave Animation */
@@ -54,7 +59,7 @@
 
   /* Hamburger Logic */
   .hamburger-line {
-    @apply w-[30px] h-[2px] my-2 block bg-black transition-all duration-300;
+    @apply w-[30px] h-[2px] my-2 block bg-black transition-all duration-300 dark:bg-gray-100;
   }
 
   .hamburger-active > span:nth-child(1) { @apply origin-top-left rotate-45; }
@@ -65,14 +70,14 @@
   .bento-card {
     @apply bg-white border border-gray-100 rounded-[2rem] p-8 
            transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/5 
-           hover:-translate-y-1;
+           hover:-translate-y-1 dark:bg-gray-900 dark:border-gray-800;
   }
 
   /* Input Style */
   .input-framer {
     @apply bg-white border border-gray-200 p-4 rounded-2xl outline-none 
            transition-all duration-300 focus:border-brand-purple 
-           focus:ring-4 focus:ring-brand-purple/10;
+           focus:ring-4 focus:ring-brand-purple/10 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 dark:placeholder:text-gray-500;
   }
 
   /* Image Hover Effect */
@@ -129,12 +134,72 @@
 
   .stack-card {
     /* whitespace-nowrap memastikan tulisan tetap 1 baris di dalam kotak */
-    @apply flex items-center bg-white border border-gray-100 px-8 py-4 rounded-2xl shadow-sm mx-3 whitespace-nowrap min-w-max;
+    @apply flex items-center bg-white border border-gray-100 px-8 py-4 rounded-2xl shadow-sm mx-3 whitespace-nowrap min-w-max transition-colors duration-300 dark:bg-gray-900 dark:border-gray-800;
+  }
+
+  .stack-card span {
+    @apply dark:text-gray-100;
+  }
+}
+
+@layer utilities {
+  /* Scroll Reveal Animations */
+  .reveal {
+    opacity: 0;
+    transition: all 1s ease-out;
+  }
+
+  .reveal-up {
+    transform: translateY(50px);
+  }
+
+  .reveal-left {
+    transform: translateX(-50px);
+  }
+
+  .reveal-right {
+    transform: translateX(50px);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  /* Page Transition */
+  .page-transition {
+    animation: pageFadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes pageFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .page-exit {
+    animation: pageFadeOut 0.5s ease-in forwards;
+  }
+
+  @keyframes pageFadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
   }
 }
 
 .nav-link {
-  @apply text-base text-text-dark py-2 mx-3 flex transition duration-300;
+  @apply text-base text-text-dark py-2 mx-3 flex transition duration-300 dark:text-gray-100;
 }
 
 .nav-link:hover {
@@ -146,7 +211,7 @@
 }
 
 .nav-icon {
-  @apply text-text-dark py-2 mx-3 flex transition duration-300;
+  @apply text-text-dark py-2 mx-3 flex transition duration-300 dark:text-gray-100;
 }
 
 .nav-icon-active {

@@ -71,7 +71,7 @@ function reveal() {
 }
 
 function handlePageTransitions() {
-    const links = document.querySelectorAll('a[href$=".html"]');
+    const links = document.querySelectorAll('a[href$=".html"], a[href$="/"]');
     const main = document.querySelector('main');
 
     links.forEach(link => {

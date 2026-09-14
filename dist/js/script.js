@@ -97,9 +97,18 @@ document.addEventListener('DOMContentLoaded', () => {
     reveal();
     handlePageTransitions();
     initThemeToggle();
-    
+
     const main = document.querySelector('main');
-    if (main) main.classList.add('page-transition');
+    if (main) {
+        main.classList.remove('page-exit');
+        main.classList.add('page-transition');
+    }
+});
+
+// Lepas sisa animasi keluar saat kembali via tombol back (bfcache restore tidak memicu DOMContentLoaded)
+window.addEventListener('pageshow', () => {
+    const main = document.querySelector('main');
+    if (main) main.classList.remove('page-exit');
 });
 
 const hamburger = document.querySelector('#hamburger');

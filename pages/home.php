@@ -53,7 +53,7 @@
               <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/65 to-transparent"></div>
               <div class="absolute bottom-6 left-6 right-6">
                 <div class="flex items-center gap-2">
-                  <h2 class="text-4xl font-extrabold tracking-tight text-white">Annaska, 23</h2>
+                  <h2 class="text-4xl font-extrabold tracking-tight text-white">Annaska, 26</h2>
                   <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-blue-500 text-white shadow-lg" aria-label="Verified developer">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 1 0 1.414l-7.25 7.25a1 1 0 0 1-1.414 0l-3.25-3.25a1 1 0 1 1 1.414-1.414l2.543 2.543 6.543-6.543a1 1 0 0 1 1.414 0Z" clip-rule="evenodd" />
@@ -66,8 +66,8 @@
 
             <div class="space-y-4 p-6">
               <div class="grid gap-3 text-sm font-semibold text-gray-600 dark:text-gray-300">
-                <div class="flex items-center gap-3"><span class="text-lg">📏</span><span>Height: 170 cm</span></div>
-                <div class="flex items-center gap-3"><span class="text-lg">⚖️</span><span>Weight: 60 kg</span></div>
+                <div class="flex items-center gap-3"><span class="text-lg">📏</span><span>Height: 183 cm</span></div>
+                <div class="flex items-center gap-3"><span class="text-lg">⚖️</span><span>Weight: 90 kg</span></div>
                 <div class="flex items-center gap-3"><span class="text-lg">💼</span><span>Job: Full Stack Developer</span></div>
                 <div class="flex items-center gap-3"><span class="text-lg">📍</span><span>Location: Jakarta, Indonesia</span></div>
               </div>

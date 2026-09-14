@@ -23,56 +23,72 @@
 
       <div class="w-full self-center px-4 lg:w-1/2 mt-16 lg:mt-0">
         <div class="relative flex min-h-[620px] items-center justify-center lg:justify-end">
-          <div class="absolute right-10 top-14 hidden h-[540px] w-[340px] rotate-6 rounded-[24px] bg-purple-200/40 shadow-xl dark:bg-purple-950/40 md:block"></div>
-          <div class="absolute right-16 top-10 hidden h-[540px] w-[340px] -rotate-3 rounded-[24px] bg-pink-100 shadow-xl dark:bg-gray-900 md:block"></div>
+          <div class="relative w-full max-w-[520px]">
+          <div class="absolute inset-0 hidden translate-x-3 translate-y-3 rotate-6 rounded-[24px] bg-purple-200/40 shadow-xl md:block dark:bg-purple-950/40"></div>
+          <div class="absolute inset-0 hidden translate-x-2 translate-y-2 -rotate-3 rounded-[24px] bg-pink-100 shadow-xl md:block dark:bg-gray-900"></div>
 
-          <article class="relative z-20 w-full max-w-[360px] overflow-hidden rounded-[24px] bg-white shadow-2xl shadow-gray-900/20 transition-transform duration-500 hover:scale-[1.02] dark:bg-gray-900 dark:shadow-black/40">
-            <div class="relative h-[390px] overflow-hidden">
-              <img src="./img/annaska.png" 
-                   alt="Annaskaa" 
-                   class="h-full w-full object-cover object-top">
-              <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/65 to-transparent"></div>
-              <div class="absolute bottom-6 left-6 right-6">
-                <div class="flex items-center gap-2">
-                  <h2 class="text-4xl font-extrabold tracking-tight text-white">Annaska, 23</h2>
-                  <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-blue-500 text-white shadow-lg" aria-label="Verified developer">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 1 0 1.414l-7.25 7.25a1 1 0 0 1-1.414 0l-3.25-3.25a1 1 0 1 1 1.414-1.414l2.543 2.543 6.543-6.543a1 1 0 0 1 1.414 0Z" clip-rule="evenodd" />
-                    </svg>
-                  </span>
+          <article class="relative z-20 overflow-hidden rounded-[24px] bg-white shadow-2xl shadow-gray-900/20 transition-transform duration-500 hover:scale-[1.02] dark:bg-gray-900 dark:shadow-black/40">
+            <div class="flex flex-col md:flex-row">
+              <div class="relative aspect-[16/10] w-full overflow-hidden md:aspect-auto md:w-[40%]">
+                <img src="./img/annaska.png"
+                     alt="Annaskaa"
+                     class="h-full w-full object-cover object-top">
+                <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/65 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6 md:hidden">
+                  <div class="flex items-center gap-2">
+                    <h2 class="text-3xl font-extrabold tracking-tight text-white">Annaska, 23</h2>
+                    <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-blue-500 text-white shadow-lg" aria-label="Verified developer">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 1 0 1.414l-7.25 7.25a1 1 0 0 1-1.414 0l-3.25-3.25a1 1 0 1 1 1.414-1.414l2.543 2.543 6.543-6.543a1 1 0 0 1 1.414 0Z" clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </div>
+                  <p class="mt-2 text-sm font-semibold uppercase tracking-[0.25em] text-white/75">Verified Developer</p>
                 </div>
-                <p class="mt-2 text-sm font-semibold uppercase tracking-[0.25em] text-white/75">Verified Developer</p>
+              </div>
+
+              <div class="flex-1 space-y-3 p-5">
+                <div class="hidden md:block">
+                  <div class="flex items-center gap-2">
+                    <h2 class="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">Annaska, 23</h2>
+                    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-blue-500 text-white shadow-lg" aria-label="Verified developer">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 1 0 1.414l-7.25 7.25a1 1 0 0 1-1.414 0l-3.25-3.25a1 1 0 1 1 1.414-1.414l2.543 2.543 6.543-6.543a1 1 0 0 1 1.414 0Z" clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </div>
+                  <p class="mt-1 text-xs font-semibold uppercase tracking-[0.25em] text-gray-400 dark:text-gray-500">Verified Developer</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-2 text-sm font-semibold text-gray-600 md:grid-cols-2 md:gap-x-4 md:gap-y-2 dark:text-gray-300">
+                  <div class="flex items-center gap-2"><span class="text-lg">📏</span><span>Height: 170 cm</span></div>
+                  <div class="flex items-center gap-2"><span class="text-lg">⚖️</span><span>Weight: 60 kg</span></div>
+                  <div class="flex items-center gap-2 md:col-span-2"><span class="text-lg">💼</span><span>Job: Full Stack Developer</span></div>
+                  <div class="flex items-center gap-2 md:col-span-2"><span class="text-lg">📍</span><span>Location: Jakarta, Indonesia</span></div>
+                </div>
+
+                <div>
+                  <p class="mb-2 text-sm font-bold text-gray-900 dark:text-white">❤️ Interests</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="rounded-full bg-purple-50 px-3 py-1 text-sm font-bold text-brand-purple dark:bg-purple-950/50">Coding</span>
+                    <span class="rounded-full bg-purple-50 px-3 py-1 text-sm font-bold text-brand-purple dark:bg-purple-950/50">Coffee</span>
+                    <span class="rounded-full bg-purple-50 px-3 py-1 text-sm font-bold text-brand-purple dark:bg-purple-950/50">Gaming</span>
+                    <span class="rounded-full bg-purple-50 px-3 py-1 text-sm font-bold text-brand-purple dark:bg-purple-950/50">Music</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="space-y-4 p-6">
-              <div class="grid gap-3 text-sm font-semibold text-gray-600 dark:text-gray-300">
-                <div class="flex items-center gap-3"><span class="text-lg">📏</span><span>Height: 170 cm</span></div>
-                <div class="flex items-center gap-3"><span class="text-lg">⚖️</span><span>Weight: 60 kg</span></div>
-                <div class="flex items-center gap-3"><span class="text-lg">💼</span><span>Job: Full Stack Developer</span></div>
-                <div class="flex items-center gap-3"><span class="text-lg">📍</span><span>Location: Jakarta, Indonesia</span></div>
-              </div>
-
-              <div>
-                <p class="mb-3 text-sm font-bold text-gray-900 dark:text-white">❤️ Interests</p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="rounded-full bg-purple-50 px-3 py-1 text-sm font-bold text-brand-purple dark:bg-purple-950/50">Coding</span>
-                  <span class="rounded-full bg-purple-50 px-3 py-1 text-sm font-bold text-brand-purple dark:bg-purple-950/50">Coffee</span>
-                  <span class="rounded-full bg-purple-50 px-3 py-1 text-sm font-bold text-brand-purple dark:bg-purple-950/50">Gaming</span>
-                  <span class="rounded-full bg-purple-50 px-3 py-1 text-sm font-bold text-brand-purple dark:bg-purple-950/50">Music</span>
-                </div>
-              </div>
-
+            <div class="space-y-3 px-5 pb-5">
               <a href="index.php?page=contact" class="flex w-full items-center justify-center rounded-full bg-gradient-to-r from-brand-purple to-fuchsia-500 px-6 py-4 text-base font-extrabold text-white shadow-lg shadow-purple-500/25 transition duration-300 hover:scale-[1.03] active:scale-[0.98]">
                 Say Hi 👋
               </a>
+
+              <a href="index.php?page=about" aria-label="Go to profile page" class="know-me-btn">
+                Know Me Better <span class="know-me-arrow">→</span>
+              </a>
             </div>
           </article>
-
-          <div class="absolute bottom-8 left-8 hidden items-center gap-2 text-sm font-bold text-gray-400 md:flex dark:text-gray-600">
-            <span>‹</span>
-            <span>swipe to know me</span>
-            <span>›</span>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
     
     <section class="mb-20 reveal reveal-up">
       <h2 class="text-7xl md:text-9xl font-extrabold tracking-tighter text-gray-900 dark:text-white mb-10">
-        About me<span class="text-brand-purple">.</span>
+        Profile<span class="text-brand-purple">.</span>
       </h2>
       
       <div class="max-w-6xl border-l-8 border-brand-purple pl-8 py-2 reveal reveal-left">
@@ -27,6 +27,7 @@
 
       <!-- LEFT -->
       <div class="reveal reveal-left">
+        <p class="text-sm font-bold uppercase tracking-[0.35em] text-brand-purple mb-4">What I bring to the table</p>
         <h3 class="text-3xl font-bold mb-6">My Stack.</h3>
         
         <!-- skills 1 start (Seamless Marquee) -->

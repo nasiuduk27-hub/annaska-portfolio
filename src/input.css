@@ -275,3 +275,42 @@
 .nav-icon-active {
   @apply text-brand-purple;
 }
+
+/* Know Me Better — outline/ghost button inside profile card */
+.know-me-btn {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid #7000F6;
+  border-radius: 9999px;
+  background-color: transparent;
+  color: #7000F6;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 800;
+  transition: all 200ms ease;
+}
+
+.know-me-btn:hover {
+  background-color: rgba(112, 0, 246, 0.1);
+}
+
+.know-me-arrow {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.know-me-btn:hover .know-me-arrow {
+  transform: translateX(4px);
+}
+
+.dark .know-me-btn {
+  border-color: #c4b5fd;
+  color: #c4b5fd;
+}
+
+.dark .know-me-btn:hover {
+  background-color: rgba(196, 181, 253, 0.1);
+}

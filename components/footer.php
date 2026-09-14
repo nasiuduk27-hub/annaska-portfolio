@@ -13,7 +13,7 @@
 
       <div class="flex gap-10">
         <a href="index.php?page=home" class="text-sm font-bold text-gray-400 hover:text-text-dark transition dark:text-gray-500 dark:hover:text-white">Home</a>
-        <a href="index.php?page=about" class="text-sm font-bold text-gray-400 hover:text-text-dark transition dark:text-gray-500 dark:hover:text-white">About</a>
+        <a href="index.php?page=about" class="text-sm font-bold text-gray-400 hover:text-text-dark transition dark:text-gray-500 dark:hover:text-white">Profile</a>
         <a href="index.php?page=contact" class="text-sm font-bold text-gray-400 hover:text-text-dark transition dark:text-gray-500 dark:hover:text-white">Contact</a>
       </div>
 

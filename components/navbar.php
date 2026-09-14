@@ -31,7 +31,7 @@ $currentPage = $_GET['page'] ?? 'home';
             <li class="group">
               <a href="index.php?page=about" 
                  class="text-base py-2 mx-3 flex transition duration-300 <?= ($currentPage == 'about') ? 'text-brand-purple font-bold' : 'text-text-dark dark:text-gray-100 group-hover:text-brand-purple' ?>">
-                About
+                Profile
               </a>
             </li>
             <li class="group">

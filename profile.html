@@ -1,11 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annaska Andrizky | Full Stack Developer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <!-- CSS -->
+  <link href="./dist/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="./src/input.css">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6, .font-outfit {
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-text-dark antialiased overflow-x-hidden transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100">
+
+<header id="header" class="bg-transparent absolute top-0 left-0 w-full z-10 flex items-center transition duration-300">
+  <div class="container mx-auto">
+    <div class="flex items-center justify-between relative px-4 lg:px-20">
+
+      <div class="flex-none">
+        <a href="index.html" class="text-lg font-bold text-gray-900 tracking-tighter block py-6 transition-colors duration-300 dark:text-white">
+          Annaskaa<span class="text-brand-purple">.</span>
+        </a>
+      </div>
+
+      <nav id="nav-menu" class="hidden absolute py-5 bg-white rounded-lg shadow-lg max-w-62.5 w-full right-4 top-full transition-colors duration-300 dark:bg-gray-900 dark:shadow-gray-950/40 lg:block lg:static lg:bg-transparent lg:dark:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none lg:flex-1">
+        <ul class="flex flex-col lg:flex-row lg:items-center lg:w-full">
+
+          <div class="flex flex-col lg:flex-row lg:flex-1 lg:justify-center lg:gap-1">
+            <li class="group">
+              <a href="index.html"
+                 class="text-base py-2 mx-3 flex transition duration-300 text-text-dark dark:text-gray-100 group-hover:text-brand-purple">
+                Home
+              </a>
+            </li>
+            <li class="group">
+              <a href="project.html"
+                 class="text-base py-2 mx-3 flex transition duration-300 text-text-dark dark:text-gray-100 group-hover:text-brand-purple">
+                Project
+              </a>
+            </li>
+            <li class="group">
+              <a href="profile.html"
+                 class="text-base py-2 mx-3 flex transition duration-300 text-brand-purple font-bold">
+                Profile
+              </a>
+            </li>
+            <li class="group">
+              <a href="contact.html"
+                 class="text-base py-2 mx-3 flex transition duration-300 text-text-dark dark:text-gray-100 group-hover:text-brand-purple">
+                Contact
+              </a>
+            </li>
+          </div>
+
+          <div class="flex flex-row items-center gap-2 px-3 py-2">
+            <li class="group">
+              <a href="https://github.com/nasiuduk27-hub" aria-label="GitHub" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white/70 text-text-dark transition duration-300 hover:border-brand-purple hover:text-brand-purple dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:hover:border-brand-purple dark:hover:text-brand-purple">
+                <svg role="img" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current">
+                  <title>GitHub</title>
+                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+              </a>
+            </li>
+            <li class="group">
+              <a href="https://www.linkedin.com/in/annaska-andrizky/" aria-label="LinkedIn" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white/70 text-text-dark transition duration-300 hover:border-brand-purple hover:text-brand-purple dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:hover:border-brand-purple dark:hover:text-brand-purple">
+                <svg role="img" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current">
+                  <title>LinkedIn</title>
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.447-2.136 2.942v5.664H9.351V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.371 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.559V9h3.555v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                </svg>
+              </a>
+            </li>
+          </div>
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-3 ml-2 lg:ml-3">
+        <button id="theme-toggle" type="button" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white/70 text-text-dark transition duration-300 hover:border-brand-purple hover:text-brand-purple dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:hover:border-brand-purple dark:hover:text-brand-purple" aria-label="Toggle dark mode">
+          <svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+          </svg>
+          <svg id="theme-toggle-light-icon" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.36 6.36-1.42-1.42M7.06 7.06 5.64 5.64m12.72 0-1.42 1.42M7.06 16.94l-1.42 1.42" />
+            <circle cx="12" cy="12" r="4" />
+          </svg>
+        </button>
+
+        <button id="hamburger" name="hamburger" type="button" class="block lg:hidden">
+          <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
+          <span class="hamburger-line transition duration-300 ease-in-out"></span>
+          <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+  <main>
 <main class="pt-32 pb-20 bg-[#F9F9F9] transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100">
   <div class="container mx-auto px-4 lg:px-20">
-    
+
     <section class="mb-20 reveal reveal-up">
       <h2 class="text-7xl md:text-9xl font-extrabold tracking-tighter text-gray-900 dark:text-white mb-10">
         Profile<span class="text-brand-purple">.</span>
       </h2>
-      
+
       <div class="max-w-6xl border-l-8 border-brand-purple pl-8 py-2 reveal reveal-left">
         <p class="text-2xl md:text-4xl text-gray-700 dark:text-gray-200 leading-[1.3] tracking-tight font-medium mb-10">
           Developing beautiful and functional websites is what I love doing.
@@ -29,7 +152,7 @@
       <div class="reveal reveal-left">
         <p class="text-sm font-bold uppercase tracking-[0.35em] text-brand-purple mb-4">What I bring to the table</p>
         <h3 class="text-3xl font-bold mb-6">My Stack.</h3>
-        
+
         <!-- skills 1 start (Seamless Marquee) -->
         <div class="flex overflow-hidden mb-6">
           <div class="animate-marquee py-2 flex items-center">
@@ -40,7 +163,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star text-brand-purple" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/></svg>
             <div class="stack-card"><span class="font-bold text-text-dark dark:text-gray-100">Web Development</span></div>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star text-brand-purple" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/></svg>
-            
+
             <!-- Set 2 (Duplicate for Seamless) -->
             <div class="stack-card"><span class="font-bold text-text-dark dark:text-gray-100">Technical Support</span></div>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star text-brand-purple" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/></svg>
@@ -78,7 +201,7 @@
         </div>
         <!-- skill 2 end -->
 
-        <!-- skills 3 start (Seamless Marquee) --> 
+        <!-- skills 3 start (Seamless Marquee) -->
         <div class="flex overflow-hidden mb-6">
           <div class="animate-marquee py-2 flex items-center">
             <!-- Set 1 -->
@@ -122,8 +245,8 @@
               <!-- Bali & Nusa Tenggara -->
               <path d="M512 407 C525 398 543 399 554 410 C541 420 522 419 512 407Z"/>
               <path d="M566 417 C590 402 630 405 653 425 C621 438 586 434 566 417Z"/>
-              <path d="M665 427 C695 413 741 418 766 439 C729 452 690 448 665 427Z"/>
               <!-- Maluku -->
+              <path d="M665 427 C695 413 741 418 766 439 C729 452 690 448 665 427Z"/>
               <path d="M683 332 C699 318 722 322 732 340 C717 351 695 349 683 332Z"/>
               <path d="M735 360 C751 347 776 351 786 369 C769 381 747 377 735 360Z"/>
               <path d="M707 190 C720 180 739 182 747 197 C734 208 715 205 707 190Z"/>
@@ -251,3 +374,39 @@
 
   </div>
 </main>
+  </main>
+
+<footer class="bg-[#F9F9F9] py-16 border-t border-gray-100 transition-colors duration-300 dark:bg-gray-950 dark:border-gray-800">
+  <div class="container mx-auto px-4 lg:px-20">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+
+      <div class="text-center md:text-left">
+        <a href="index.html" class="text-2xl font-black tracking-tighter text-text-dark mb-4 inline-block transition-colors duration-300 dark:text-white">
+          Annaska<span class="text-brand-purple">.</span>
+        </a>
+        <p class="text-gray-500 max-w-xs dark:text-gray-400">
+          Building digital experiences with passion and operational precision.
+        </p>
+      </div>
+
+      <div class="flex gap-10">
+        <a href="index.html" class="text-sm font-bold text-gray-400 hover:text-text-dark transition dark:text-gray-500 dark:hover:text-white">Home</a>
+        <a href="profile.html" class="text-sm font-bold text-gray-400 hover:text-text-dark transition dark:text-gray-500 dark:hover:text-white">Profile</a>
+        <a href="contact.html" class="text-sm font-bold text-gray-400 hover:text-text-dark transition dark:text-gray-500 dark:hover:text-white">Contact</a>
+      </div>
+
+      <div class="text-center md:text-right">
+        <p class="text-sm text-gray-400 mb-2 dark:text-gray-500">&copy; 2026 All rights reserved.</p>
+        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
+          Made with <span class="text-brand-purple">💜</span> by Annaska Andrizky
+        </p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="./dist/js/script.js"></script>
+</body>
+</html>

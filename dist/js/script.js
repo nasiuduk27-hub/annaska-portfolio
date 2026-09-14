@@ -5,21 +5,17 @@ if (container && photo) {
     container.addEventListener('mousemove', (e) => {
         const rect = container.getBoundingClientRect();
         
-        // Hitung seberapa jauh kursor dari tengah gambar
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
 
-        // Tentukan sensitivitas (angka lebih kecil = gerakan lebih sedikit/halus)
         const sensitivity = 0.1; 
 
         const moveX = x * sensitivity;
         const moveY = y * sensitivity;
 
-        // Gerakkan foto mengikuti kursor
         photo.style.transform = `translate(${moveX}px, ${moveY}px)`;
     });
 
-    // Balikkan ke posisi semula saat kursor keluar
     container.addEventListener('mouseleave', () => {
         photo.style.transform = `translate(0px, 0px)`;
     });
@@ -27,11 +23,7 @@ if (container && photo) {
 
 function getPreferredTheme() {
     const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme) {
-        return savedTheme;
-    }
-
+    if (savedTheme) return savedTheme;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
@@ -55,39 +47,29 @@ function applyTheme(theme) {
 
 function initThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
-
     applyTheme(getPreferredTheme());
-
     if (!themeToggle) return;
 
     themeToggle.addEventListener('click', () => {
         const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-
         localStorage.setItem('theme', nextTheme);
         applyTheme(nextTheme);
     });
 }
 
-// Scroll Reveal
 function reveal() {
     const reveals = document.querySelectorAll('.reveal');
-    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
             }
         });
-    }, {
-        threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
-    reveals.forEach(reveal => {
-        observer.observe(reveal);
-    });
+    reveals.forEach(reveal => observer.observe(reveal));
 }
 
-// Page Transition Logic
 function handlePageTransitions() {
     const links = document.querySelectorAll('a[href*="index.php?page="]');
     const main = document.querySelector('main');
@@ -97,19 +79,16 @@ function handlePageTransitions() {
             const href = this.getAttribute('href');
             const url = new URL(href, window.location.origin);
             
-            // Don't animate if it's an anchor on the same page or the exact same page
             if (url.pathname === window.location.pathname && url.search === window.location.search) {
-                if (url.hash) return; // Let default anchor behavior happen
-                e.preventDefault(); // Already on this page
+                if (url.hash) return;
+                e.preventDefault();
                 return;
             }
 
             e.preventDefault();
             main.classList.add('page-exit');
             
-            setTimeout(() => {
-                window.location.href = href;
-            }, 500);
+            setTimeout(() => { window.location.href = href; }, 500);
         });
     });
 }
@@ -119,11 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
     handlePageTransitions();
     initThemeToggle();
     
-    // Initial page load animation
     const main = document.querySelector('main');
-    if (main) {
-        main.classList.add('page-transition');
-    }
+    if (main) main.classList.add('page-transition');
 });
 
 const hamburger = document.querySelector('#hamburger');
@@ -136,11 +112,9 @@ if (hamburger && navMenu) {
     });
 }
 
-// navbar scroll effect
 window.onscroll = function() {
     const header = document.querySelector('header');
     const fixedNav = header.offsetTop;
-
     if (window.pageYOffset > fixedNav) {
         header.classList.add('navbar-fixed');
     } else {
@@ -149,12 +123,9 @@ window.onscroll = function() {
 };
 
  const links = document.querySelectorAll('.nav-link, .nav-icon');
-  const current = window.location.pathname.split("/").pop();
+   const current = window.location.pathname.split("/").pop();
 
-  links.forEach(link => {
-    const href = link.getAttribute('href');
-
-    if (href === current) {
-      link.classList.add('nav-active');
-    }
-  });
+   links.forEach(link => {
+     const href = link.getAttribute('href');
+     if (href === current) link.classList.add('nav-active');
+   });

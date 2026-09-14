@@ -22,17 +22,58 @@
       </div>
 
       <div class="w-full self-center px-4 lg:w-1/2 mt-16 lg:mt-0">
-        <div id="hero-image-container" class="relative flex justify-center lg:justify-end group">
-          <img src="./img/annaska.png" 
-               alt="Annaskaa" 
-               id="hero-photo"
-               class="relative z-10 w-72 md:w-96 lg:w-480px drop-shadow-2xl transition-transform duration-300 ease-out">
-          
-          <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 scale-125 md:scale-150">
-            <svg width="400" height="400"  viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#7000F6" d="M51.3,-54.2C64.4,-38.2,71.5,-19.1,67.2,-4.4C62.8,10.4,46.9,20.7,33.8,31.7C20.7,42.7,10.4,54.4,-6,60.4C-22.4,66.4,-44.8,66.8,-59.8,55.8C-74.9,44.8,-82.5,22.4,-77,5.5C-71.5,-11.3,-52.8,-22.7,-37.7,-38.7C-22.7,-54.6,-11.3,-75.2,3.9,-79.1C19.1,-82.9,38.2,-70.1,51.3,-54.2Z" transform="translate(130 100) scale(1)" />
-            </svg>
-          </span>
+        <div class="relative flex min-h-[620px] items-center justify-center lg:justify-end">
+          <div class="absolute right-10 top-14 hidden h-[540px] w-[340px] rotate-6 rounded-[24px] bg-purple-200/40 shadow-xl dark:bg-purple-950/40 md:block"></div>
+          <div class="absolute right-16 top-10 hidden h-[540px] w-[340px] -rotate-3 rounded-[24px] bg-pink-100 shadow-xl dark:bg-gray-900 md:block"></div>
+
+          <article class="relative z-20 w-full max-w-[360px] overflow-hidden rounded-[24px] bg-white shadow-2xl shadow-gray-900/20 transition-transform duration-500 hover:scale-[1.02] dark:bg-gray-900 dark:shadow-black/40">
+            <div class="relative h-[390px] overflow-hidden">
+              <img src="./img/annaska.png" 
+                   alt="Annaskaa" 
+                   class="h-full w-full object-cover object-top">
+              <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/65 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6">
+                <div class="flex items-center gap-2">
+                  <h2 class="text-4xl font-extrabold tracking-tight text-white">Annaska, 23</h2>
+                  <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-blue-500 text-white shadow-lg" aria-label="Verified developer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 1 0 1.414l-7.25 7.25a1 1 0 0 1-1.414 0l-3.25-3.25a1 1 0 1 1 1.414-1.414l2.543 2.543 6.543-6.543a1 1 0 0 1 1.414 0Z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                </div>
+                <p class="mt-2 text-sm font-semibold uppercase tracking-[0.25em] text-white/75">Verified Developer</p>
+              </div>
+            </div>
+
+            <div class="space-y-4 p-6">
+              <div class="grid gap-3 text-sm font-semibold text-gray-600 dark:text-gray-300">
+                <div class="flex items-center gap-3"><span class="text-lg">📏</span><span>Height: 170 cm</span></div>
+                <div class="flex items-center gap-3"><span class="text-lg">⚖️</span><span>Weight: 60 kg</span></div>
+                <div class="flex items-center gap-3"><span class="text-lg">💼</span><span>Job: Full Stack Developer</span></div>
+                <div class="flex items-center gap-3"><span class="text-lg">📍</span><span>Location: Jakarta, Indonesia</span></div>
+              </div>
+
+              <div>
+                <p class="mb-3 text-sm font-bold text-gray-900 dark:text-white">❤️ Interests</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="rounded-full bg-purple-50 px-3 py-1 text-sm font-bold text-brand-purple dark:bg-purple-950/50">Coding</span>
+                  <span class="rounded-full bg-purple-50 px-3 py-1 text-sm font-bold text-brand-purple dark:bg-purple-950/50">Coffee</span>
+                  <span class="rounded-full bg-purple-50 px-3 py-1 text-sm font-bold text-brand-purple dark:bg-purple-950/50">Gaming</span>
+                  <span class="rounded-full bg-purple-50 px-3 py-1 text-sm font-bold text-brand-purple dark:bg-purple-950/50">Music</span>
+                </div>
+              </div>
+
+              <a href="index.php?page=contact" class="flex w-full items-center justify-center rounded-full bg-gradient-to-r from-brand-purple to-fuchsia-500 px-6 py-4 text-base font-extrabold text-white shadow-lg shadow-purple-500/25 transition duration-300 hover:scale-[1.03] active:scale-[0.98]">
+                Say Hi 👋
+              </a>
+            </div>
+          </article>
+
+          <div class="absolute bottom-8 left-8 hidden items-center gap-2 text-sm font-bold text-gray-400 md:flex dark:text-gray-600">
+            <span>‹</span>
+            <span>swipe to know me</span>
+            <span>›</span>
+          </div>
         </div>
       </div>
 
@@ -157,13 +198,13 @@
       <!-- Skill 2 -->
       <div class="flex flex-col items-center text-center p-8 bg-[#F9F9F9] dark:bg-gray-900 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-transparent dark:border-gray-800 hover:border-brand-purple/20 dark:hover:border-brand-purple/30 reveal reveal-up" style="transition-delay: 200ms;">
         <h3 class="text-xl font-bold text-text-dark dark:text-gray-100 mb-2">Full Stack</h3>
-        <p class="text-gray-500 dark:text-gray-400">HTML, CSS, Tailwind CSS, JavaScript</p>
+        <p class="text-gray-500 dark:text-gray-400">HTML, CSS, Tailwind CSS, JavaScript, Laravel</p>
       </div>
 
       <!-- Skill 3 -->
       <div class="flex flex-col items-center text-center p-8 bg-[#F9F9F9] dark:bg-gray-900 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-transparent dark:border-gray-800 hover:border-brand-purple/20 dark:hover:border-brand-purple/30 reveal reveal-up" style="transition-delay: 300ms;">
         <h3 class="text-xl font-bold text-text-dark dark:text-gray-100 mb-2">Backend</h3>
-        <p class="text-gray-500 dark:text-gray-400">PHP, MySQL, Basic Node.js</p>
+        <p class="text-gray-500 dark:text-gray-400">PHP, Laravel, MySQL, Basic Node.js</p>
       </div>
 
       <!-- Skill 4 -->

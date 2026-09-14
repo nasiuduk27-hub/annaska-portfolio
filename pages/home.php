@@ -54,11 +54,7 @@
               <div class="absolute bottom-6 left-6 right-6">
                 <div class="flex items-center gap-2">
                   <h2 class="text-4xl font-extrabold tracking-tight text-white">Annaska, 26</h2>
-                  <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-blue-500 text-white shadow-lg" aria-label="Verified developer">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 0 1 0 1.414l-7.25 7.25a1 1 0 0 1-1.414 0l-3.25-3.25a1 1 0 1 1 1.414-1.414l2.543 2.543 6.543-6.543a1 1 0 0 1 1.414 0Z" clip-rule="evenodd" />
-                    </svg>
-                  </span>
+                  <img src="./img/veriv.png" alt="Verified developer" class="h-7 w-7 flex-shrink-0">
                 </div>
                 <p class="mt-2 text-sm font-semibold uppercase tracking-[0.25em] text-white/75">Verified Developer</p>
               </div>

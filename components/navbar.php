@@ -4,7 +4,7 @@ $currentPage = $_GET['page'] ?? 'home';
 
 <header id="header" class="bg-transparent absolute top-0 left-0 w-full z-10 flex items-center transition duration-300">
   <div class="container mx-auto">
-    <div class="flex items-center justify-between relative px-4">
+    <div class="flex items-center justify-between relative px-4 lg:px-20">
       
       <div class="flex-none">
         <a href="index.php?page=home" class="text-lg font-bold text-gray-900 tracking-tighter block py-6 transition-colors duration-300 dark:text-white">
@@ -42,7 +42,7 @@ $currentPage = $_GET['page'] ?? 'home';
             </li>
           </div>
 
-          <div class="flex flex-col lg:flex-row lg:items-center lg:gap-2">
+          <div class="flex flex-row items-center gap-2 px-3 py-2">
             <li class="group">
               <a href="https://github.com/nasiuduk27-hub" aria-label="GitHub" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white/70 text-text-dark transition duration-300 hover:border-brand-purple hover:text-brand-purple dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:hover:border-brand-purple dark:hover:text-brand-purple">
                 <svg role="img" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current">

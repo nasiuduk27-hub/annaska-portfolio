@@ -122,6 +122,25 @@
     width: max-content;
     animation: marquee-reverse 25s linear infinite;
   }
+
+  .stack-card {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    min-width: max-content;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    border: 1px solid #f3f4f6;
+    padding: 16px 32px;
+    border-radius: 16px;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+    margin-inline: 12px;
+  }
+
+  .dark .stack-card {
+    background-color: #111827;
+    border-color: #1f2937;
+  }
 }
 
 @layer utilities {

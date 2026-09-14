@@ -1,9 +1,16 @@
 <!-- Home Section start -->
 <section id="home" class="pt-36 pb-20 min-h-screen flex items-center reveal reveal-up">
   <div class="container mx-auto px-4 lg:px-20">
-    <div class="flex flex-wrap items-center">
-      
-      <div class="w-full self-center px-4 lg:w-1/2 text-center lg:text-left">
+<div class="flex flex-wrap items-start">
+        
+      <div class="w-full self-center px-4 lg:w-1/2 text-center lg:text-left lg:self-start lg:pt-2">
+        <div class="flex items-center justify-center lg:justify-start gap-2 mb-4">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 animate-ping"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+          </span>
+          <span class="text-sm text-gray-500 dark:text-gray-400">Online &middot; actively looking for opportunities</span>
+        </div>
         <h1 class="text-xl md:text-2xl font-semibold lg:text-3xl mb-2">
           Hey, I'm Annaska Andrizky <span class="text-3xl animate-wave inline-block">👋</span>
         </h1>
@@ -12,17 +19,29 @@
           <span class="text-brand-purple">Full</span> Stack<br>Developer
         </h2>
         
-        <p class="font-medium mt-6 mb-10 leading-relaxed text-gray-600 dark:text-gray-300 max-w-md mx-auto lg:mx-0">
-          I'm a Junior Full Stack Developer based in Jakarta. I'll help you build beautiful websites your users will love.
+        <p class="font-medium mt-6 mb-10 leading-relaxed text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0">
+          I'm a junior full stack developer from Jakarta, serious about code and mildly serious about coffee. Looking for my next great connection — preferably a dev team with good vibes and better code reviews. Ready to build something beautiful together.
         </p>
-        
+
+        <div class="border-l-2 border-brand-purple pl-4 mb-6 max-w-md mx-auto lg:mx-0 text-left">
+          <p class="text-base italic text-gray-700 dark:text-gray-200">
+            "Looking for a team that values good code and good coffee."
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center lg:justify-start gap-2 mb-8">
+          <span class="rounded-full bg-purple-50 px-3 py-1.5 text-sm font-semibold text-brand-purple dark:bg-purple-950/50">Fast learner</span>
+          <span class="rounded-full bg-purple-50 px-3 py-1.5 text-sm font-semibold text-brand-purple dark:bg-purple-950/50">Team player</span>
+          <span class="rounded-full bg-purple-50 px-3 py-1.5 text-sm font-semibold text-brand-purple dark:bg-purple-950/50">Detail-oriented</span>
+        </div>
+
         <a href="index.php?page=contact" class="inline-block bg-brand-purple text-white px-8 py-3.5 rounded-xl font-bold text-base transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-brand-purple/20">
           Get in Touch
         </a>
       </div>
 
-      <div class="w-full self-center px-4 lg:w-1/2 mt-16 lg:mt-0">
-        <div class="relative flex min-h-[620px] items-center justify-center lg:justify-end">
+      <div class="w-full self-start px-4 lg:w-1/2 mt-16 lg:mt-0">
+        <div class="relative flex min-h-[620px] items-start justify-center lg:justify-end">
           <div class="absolute right-10 top-14 hidden h-[540px] w-[340px] rotate-6 rounded-[24px] bg-purple-200/40 shadow-xl dark:bg-purple-950/40 md:block"></div>
           <div class="absolute right-16 top-10 hidden h-[540px] w-[340px] -rotate-3 rounded-[24px] bg-pink-100 shadow-xl dark:bg-gray-900 md:block"></div>
 

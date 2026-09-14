@@ -8,6 +8,7 @@
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-green-500: oklch(72.3% 0.219 149.579);
     --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-indigo-50: oklch(96.2% 0.018 272.314);
     --color-purple-50: oklch(97.7% 0.014 308.299);
@@ -79,6 +80,7 @@
     --drop-shadow-2xl: 0 25px 25px rgb(0 0 0 / 0.15);
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
     --blur-md: 12px;
     --aspect-video: 16 / 9;
     --default-transition-duration: 150ms;
@@ -568,6 +570,9 @@
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
+  .animate-ping {
+    animation: var(--animate-ping);
+  }
   .resize-none {
     resize: none;
   }
@@ -585,6 +590,9 @@
   }
   .items-center {
     align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
   }
   .justify-between {
     justify-content: space-between;
@@ -647,6 +655,9 @@
   .self-center {
     align-self: center;
   }
+  .self-start {
+    align-self: flex-start;
+  }
   .overflow-hidden {
     overflow: hidden;
   }
@@ -693,6 +704,10 @@
     border-left-style: var(--tw-border-style);
     border-left-width: 1px;
   }
+  .border-l-2 {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 2px;
+  }
   .border-l-8 {
     border-left-style: var(--tw-border-style);
     border-left-width: 8px;
@@ -726,6 +741,9 @@
   }
   .bg-gray-50 {
     background-color: var(--color-gray-50);
+  }
+  .bg-green-500 {
+    background-color: var(--color-green-500);
   }
   .bg-pink-100 {
     background-color: var(--color-pink-100);
@@ -851,6 +869,9 @@
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
   }
+  .py-1\.5 {
+    padding-block: calc(var(--spacing) * 1.5);
+  }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
@@ -902,6 +923,9 @@
   .pb-32 {
     padding-bottom: calc(var(--spacing) * 32);
   }
+  .pl-4 {
+    padding-left: calc(var(--spacing) * 4);
+  }
   .pl-6 {
     padding-left: calc(var(--spacing) * 6);
   }
@@ -910,6 +934,9 @@
   }
   .text-center {
     text-align: center;
+  }
+  .text-left {
+    text-align: left;
   }
   .font-serif {
     font-family: var(--font-serif);
@@ -1082,6 +1109,9 @@
   }
   .opacity-40 {
     opacity: 40%;
+  }
+  .opacity-75 {
+    opacity: 75%;
   }
   .shadow-2xl {
     --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
@@ -1604,6 +1634,11 @@
       justify-content: flex-end;
     }
   }
+  .lg\:justify-start {
+    @media (width >= 64rem) {
+      justify-content: flex-start;
+    }
+  }
   .lg\:gap-1 {
     @media (width >= 64rem) {
       gap: calc(var(--spacing) * 1);
@@ -1612,6 +1647,11 @@
   .lg\:gap-2 {
     @media (width >= 64rem) {
       gap: calc(var(--spacing) * 2);
+    }
+  }
+  .lg\:self-start {
+    @media (width >= 64rem) {
+      align-self: flex-start;
     }
   }
   .lg\:rounded-none {
@@ -1627,6 +1667,11 @@
   .lg\:px-20 {
     @media (width >= 64rem) {
       padding-inline: calc(var(--spacing) * 20);
+    }
+  }
+  .lg\:pt-2 {
+    @media (width >= 64rem) {
+      padding-top: calc(var(--spacing) * 2);
     }
   }
   .lg\:text-left {
@@ -2563,6 +2608,12 @@
 @property --tw-ease {
   syntax: "*";
   inherits: false;
+}
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {

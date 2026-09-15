@@ -24,6 +24,7 @@
   <!-- CSS -->
   <link href="../dist/output.css" rel="stylesheet">
   <link rel="stylesheet" href="../src/input.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
   <style>
     body {
@@ -32,6 +33,16 @@
     h1, h2, h3, h4, h5, h6, .font-outfit {
       font-family: 'Outfit', sans-serif;
     }
+    /* My Special Place map — keep below header dropdown (z-10) */
+    #special-place-map { z-index: 0; }
+    #special-place-map .leaflet-container { background: #101018; font-family: 'Inter', sans-serif; }
+    #special-place-map .leaflet-bar a { background: #151527; color: #fff; border-color: rgba(255,255,255,.12); }
+    #special-place-map .leaflet-bar a:hover { background: #7C3AED; color: #fff; }
+    #special-place-map .leaflet-control-attribution { background: rgba(10,10,20,.6); color: #8b8b9e; font-size: 10px; }
+    #special-place-map .leaflet-control-attribution a { color: #a78bfa; }
+    .special-div-icon { background: none; border: none; }
+    .special-pin { width: 26px; height: 26px; background: #7C3AED; border: 3px solid #fff; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 4px 14px rgba(124,58,237,.55); position: relative; }
+    .special-pin::after { content: ""; position: absolute; inset: 6px; background: #fff; border-radius: 50%; }
   </style>
 </head>
 
@@ -227,38 +238,11 @@
       <!-- RIGHT -->
       <div class="reveal reveal-right">
         <h3 class="text-3xl font-bold mb-6">My Special Place.</h3>
-        <div class="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-purple-100 aspect-video shadow-xl border border-white/70 dark:from-gray-900 dark:via-gray-950 dark:to-purple-950/40 dark:border-gray-800">
-          <div class="absolute inset-0 opacity-40" style="background-image: radial-gradient(circle at 1px 1px, rgba(124, 58, 237, 0.22) 1px, transparent 0); background-size: 24px 24px;"></div>
-
-          <svg viewBox="0 0 900 520" class="relative z-10 w-full h-full" role="img" aria-label="Peta Indonesia">
-            <g fill="#7c3aed" stroke="#ffffff" stroke-width="5" stroke-linejoin="round">
-              <!-- Sumatra -->
-              <path d="M120 165 C162 126 209 127 237 171 C258 204 259 250 289 286 C313 315 345 338 349 371 C313 376 267 351 235 315 C199 275 170 235 132 217 C100 202 96 184 120 165Z"/>
-              <!-- Java -->
-              <path d="M285 384 C345 370 430 374 496 392 C464 415 365 419 300 404 C278 399 270 391 285 384Z"/>
-              <!-- Kalimantan -->
-              <path d="M365 148 C424 105 508 121 545 177 C578 228 557 301 504 328 C459 352 395 330 363 286 C326 236 324 181 365 148Z"/>
-              <!-- Sulawesi -->
-              <path d="M575 170 C614 142 659 149 675 187 C648 198 625 208 618 232 C650 230 684 241 703 270 C682 289 638 279 612 258 C609 303 588 337 557 355 C543 327 558 288 579 260 C544 253 517 227 513 196 C538 191 558 183 575 170Z"/>
-              <!-- Papua -->
-              <path d="M705 237 C756 198 836 203 872 253 C848 292 779 304 724 281 C691 267 684 252 705 237Z"/>
-              <!-- Bali & Nusa Tenggara -->
-              <path d="M512 407 C525 398 543 399 554 410 C541 420 522 419 512 407Z"/>
-              <path d="M566 417 C590 402 630 405 653 425 C621 438 586 434 566 417Z"/>
-              <!-- Maluku -->
-              <path d="M665 427 C695 413 741 418 766 439 C729 452 690 448 665 427Z"/>
-              <path d="M683 332 C699 318 722 322 732 340 C717 351 695 349 683 332Z"/>
-              <path d="M735 360 C751 347 776 351 786 369 C769 381 747 377 735 360Z"/>
-              <path d="M707 190 C720 180 739 182 747 197 C734 208 715 205 707 190Z"/>
-            </g>
-
-            <path d="M325 292 C303 292, 285 310, 285 332 C285 364, 325 405, 325 405 C325 405, 365 364, 365 332 C365 310, 347 292, 325 292Z" class="fill-gray-900 dark:fill-white"/>
-            <circle cx="325" cy="332" r="13" class="fill-white dark:fill-brand-purple"/>
-          </svg>
-
-          <div class="absolute left-8 bottom-8 z-20 rounded-2xl bg-white/85 backdrop-blur px-5 py-4 shadow-lg dark:bg-gray-950/85 dark:ring-1 dark:ring-gray-800">
-            <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand-purple">Jakarta, Indonesia</p>
-            <p class="text-2xl font-extrabold text-gray-900 dark:text-white">My Special Place</p>
+        <div id="special-place-map" class="relative rounded-[20px] overflow-hidden border border-white/70 shadow-xl dark:border-gray-800 h-[320px] md:h-[380px] bg-[#101018]">
+          <div id="special-map" class="absolute inset-0"></div>
+          <div class="pointer-events-none absolute left-4 bottom-4 z-[500] rounded-2xl px-5 py-4 shadow-lg" style="background: rgba(10,10,25,.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.12);">
+            <p class="text-xs font-semibold uppercase tracking-[0.35em] text-purple-300">Jakarta, Indonesia</p>
+            <p class="text-2xl font-extrabold text-white">My Special Place</p>
           </div>
         </div>
       </div>
@@ -408,5 +392,37 @@
 
   <!-- Scripts -->
   <script src="../dist/js/script.js"></script>
+  <script>
+    // My Special Place map — lazy init via IntersectionObserver
+    (function () {
+      var el = document.getElementById('special-map');
+      if (!el || el.dataset.init) return;
+      function boot() {
+        if (el.dataset.init) return;
+        el.dataset.init = '1';
+        var s = document.createElement('script');
+        s.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+        s.onload = function () {
+          var map = L.map('special-map', { center: [-6.2088, 106.8456], zoom: 11, scrollWheelZoom: false });
+          L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+          }).addTo(map);
+          L.marker([-6.2088, 106.8456], {
+            icon: L.divIcon({ className: 'special-div-icon', html: '<div class="special-pin"></div>', iconSize: [26, 26], iconAnchor: [13, 24] })
+          }).addTo(map);
+          setTimeout(function () { map.invalidateSize(); }, 200);
+        };
+        document.body.appendChild(s);
+      }
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) { boot(); io.disconnect(); }
+        }, { rootMargin: '200px' });
+        io.observe(el);
+      } else { boot(); }
+    })();
+  </script>
 </body>
 </html>

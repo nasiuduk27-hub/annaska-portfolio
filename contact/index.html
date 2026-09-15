@@ -167,7 +167,7 @@
 
       <!-- Kolom Kanan: Email Form -->
       <div class="w-full self-center px-4 lg:w-1/2 mt-16 lg:mt-0 reveal reveal-right">
-        <form action="mailto:hello@annaskaa.my.id" method="post" enctype="text/plain" class="bg-white border border-gray-100 rounded-[2rem] p-6 md:p-8 shadow-xl shadow-purple-500/5 transition-colors duration-300 dark:bg-gray-900 dark:border-gray-800">
+        <form id="contact-form" action="https://formspree.io/f/xvkoelwq" method="POST" class="bg-white border border-gray-100 rounded-[2rem] p-6 md:p-8 shadow-xl shadow-purple-500/5 transition-colors duration-300 dark:bg-gray-900 dark:border-gray-800">
           <div class="mb-8">
             <p class="text-sm font-bold uppercase tracking-[0.3em] text-brand-purple mb-3">Send a Message</p>
             <h3 class="text-3xl md:text-4xl font-extrabold text-text-dark dark:text-white">Let's work together.</h3>
@@ -194,9 +194,11 @@
             <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." class="input-framer w-full resize-none" required></textarea>
           </div>
 
-          <button type="submit" class="w-full bg-brand-purple text-white px-8 py-4 rounded-2xl font-bold text-base transition duration-300 hover:bg-purple-700 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-brand-purple/20">
+          <button id="contact-submit-btn" type="submit" class="w-full bg-brand-purple text-white px-8 py-4 rounded-2xl font-bold text-base transition duration-300 hover:bg-purple-700 hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-brand-purple/20">
             Send Message
           </button>
+
+          <p id="contact-status" class="mt-4 text-sm font-semibold text-center hidden"></p>
         </form>
       </div>
 
@@ -237,5 +239,45 @@
 
   <!-- Scripts -->
   <script src="../dist/js/script.js"></script>
+
+  <script>
+    (function () {
+      const form = document.getElementById('contact-form');
+      const btn = document.getElementById('contact-submit-btn');
+      const status = document.getElementById('contact-status');
+      if (!form) return;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        status.classList.add('hidden');
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            status.textContent = "Thanks! Your message has been sent. I'll get back to you soon.";
+            status.classList.remove('hidden', 'text-red-500');
+            status.classList.add('text-green-600');
+            form.reset();
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          status.textContent = 'Something went wrong. Please try again or email me directly.';
+          status.classList.remove('hidden', 'text-green-600');
+          status.classList.add('text-red-500');
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Send Message';
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

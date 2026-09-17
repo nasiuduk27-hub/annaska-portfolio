@@ -3,7 +3,6 @@
     var header = document.getElementById('header');
     var hamburger = document.getElementById('hamburger');
     var navMenu = document.getElementById('nav-menu');
-    var themeToggle = document.getElementById('theme-toggle');
     var darkIcon = document.getElementById('theme-toggle-dark-icon');
     var lightIcon = document.getElementById('theme-toggle-light-icon');
 
@@ -21,16 +20,6 @@
       hamburger.addEventListener('click', function () {
         hamburger.classList.toggle('hamburger-active');
         if (navMenu) navMenu.classList.toggle('hidden');
-      });
-    }
-
-    if (themeToggle) {
-      themeToggle.addEventListener('click', function () {
-        var isDark = document.documentElement.classList.toggle('dark');
-        try {
-          localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        } catch (error) {}
-        syncThemeIcon();
       });
     }
 

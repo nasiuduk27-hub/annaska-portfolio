@@ -45,7 +45,7 @@ const linkClass = (name) => `text-base py-2 mx-3 flex transition duration-300 ${
       </nav>
 
       <div class="flex items-center gap-3 ml-2 lg:ml-3">
-        <button id="theme-toggle" type="button" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white/70 text-text-dark transition duration-300 hover:border-brand-purple hover:text-brand-purple dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:hover:border-brand-purple dark:hover:text-brand-purple" aria-label="Toggle dark mode">
+        <button id="theme-toggle" type="button" onclick="var d=document.documentElement;var isDark=d.classList.toggle('dark');var a=document.getElementById('theme-toggle-dark-icon');var b=document.getElementById('theme-toggle-light-icon');if(a)a.classList.toggle('hidden',isDark);if(b)b.classList.toggle('hidden',!isDark);try{localStorage.setItem('theme',isDark?'dark':'light')}catch(e){}" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white/70 text-text-dark transition duration-300 hover:border-brand-purple hover:text-brand-purple dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:hover:border-brand-purple dark:hover:text-brand-purple" aria-label="Toggle dark mode">
           <svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
           </svg>

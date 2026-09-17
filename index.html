@@ -164,23 +164,26 @@
 
       <div class="w-full self-start px-4 lg:w-1/2 mt-16 lg:mt-0">
         <div class="relative flex min-h-[620px] items-start justify-center lg:justify-end">
-          <div class="absolute right-10 top-14 hidden h-[540px] w-[340px] rotate-6 rounded-[24px] bg-purple-200/40 shadow-xl dark:bg-purple-950/40 md:block"></div>
-          <div class="absolute right-16 top-10 hidden h-[540px] w-[340px] -rotate-3 rounded-[24px] bg-pink-100 shadow-xl dark:bg-gray-900 md:block"></div>
-
-          <article class="relative z-20 w-full max-w-[360px] overflow-hidden rounded-[24px] bg-white shadow-2xl shadow-gray-900/20 transition-transform duration-500 hover:scale-[1.02] dark:bg-gray-900 dark:shadow-black/40">
-            <div class="relative h-[390px] overflow-hidden">
-              <img src="./img/annaska.png"
-                   alt="Annaskaa"
-                   class="h-full w-full object-cover object-top">
-              <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/65 to-transparent"></div>
-              <div class="absolute bottom-6 left-6 right-6">
+          <article class="relative z-20 w-full max-w-[360px] rounded-[24px] bg-white shadow-2xl shadow-gray-900/20 transition-transform duration-500 hover:scale-[1.02] dark:bg-gray-900 dark:shadow-black/40">
+            <button id="profile-photo-slider" type="button" class="relative h-[390px] w-full text-left" aria-label="Change profile photo">
+              <div class="profile-photo-card is-front">
+                <img src="./img/annaska.png" alt="Annaskaa" draggable="false">
+              </div>
+              <div class="profile-photo-card is-middle" aria-hidden="true">
+                <img src="./img/annas1.jpg" alt="Annaskaa photo 2" style="object-position: center 50%;" draggable="false">
+              </div>
+              <div class="profile-photo-card is-back" aria-hidden="true">
+                <img src="./img/annas3.jpeg" alt="Annaskaa photo 3" style="object-position: center 55%;" draggable="false">
+              </div>
+              <div class="absolute inset-x-0 bottom-0 z-10 h-1/2 bg-gradient-to-t from-black via-black/65 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6 z-20">
                 <div class="flex items-center gap-2">
                   <h2 class="text-4xl font-extrabold tracking-tight text-white">Annaska, 26</h2>
                   <img src="./img/veriv.png" alt="Verified developer" class="h-7 w-7 flex-shrink-0">
                 </div>
                 <p class="mt-2 text-sm font-semibold uppercase tracking-[0.25em] text-white/75">Verified Developer</p>
               </div>
-            </div>
+            </button>
 
             <div class="space-y-4 p-6">
               <div class="grid gap-3 text-sm font-semibold text-gray-600 dark:text-gray-300">
@@ -351,6 +354,48 @@
   </div>
 </section>
 <!-- Skills Section end -->
+  <script>
+    (() => {
+      const slider = document.getElementById('profile-photo-slider');
+      const cards = document.querySelectorAll('.profile-photo-card');
+      const positions = ['is-front', 'is-middle', 'is-back'];
+      let index = 0;
+      let startX = 0;
+      let suppressClick = false;
+
+      if (!slider || cards.length === 0) return;
+
+      const rotateCards = () => {
+        index = (index + 1) % cards.length;
+
+        cards.forEach((card, cardIndex) => {
+          card.classList.remove(...positions);
+          card.classList.add(positions[(cardIndex - index + cards.length) % cards.length]);
+          card.setAttribute('aria-hidden', cardIndex === index ? 'false' : 'true');
+        });
+      };
+
+      slider.addEventListener('click', () => {
+        if (suppressClick) {
+          suppressClick = false;
+          return;
+        }
+
+        rotateCards();
+      });
+
+      slider.addEventListener('pointerdown', (event) => {
+        startX = event.clientX;
+      });
+
+      slider.addEventListener('pointerup', (event) => {
+        if (Math.abs(event.clientX - startX) < 40) return;
+
+        suppressClick = true;
+        rotateCards();
+      });
+    })();
+  </script>
   </main>
 
 <footer class="bg-[#F9F9F9] py-16 border-t border-gray-100 transition-colors duration-300 dark:bg-gray-950 dark:border-gray-800">

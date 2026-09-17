@@ -230,6 +230,50 @@
   object-position: top;
 }
 
+.profile-photo-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 24px 45px rgb(17 24 39 / 0.22);
+  transition: opacity 360ms ease, transform 360ms ease, filter 360ms ease, z-index 360ms ease;
+  user-select: none;
+}
+
+.dark .profile-photo-card {
+  background: #111827;
+}
+
+.profile-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  pointer-events: none;
+}
+
+.profile-photo-card.is-front {
+  z-index: 3;
+  opacity: 1;
+  filter: none;
+  transform: translateX(0) scale(1) rotate(0deg);
+}
+
+.profile-photo-card.is-middle {
+  z-index: 2;
+  opacity: 0.72;
+  filter: brightness(0.72) saturate(0.8);
+  transform: translate(24px, 12px) scale(0.96) rotate(4deg);
+}
+
+.profile-photo-card.is-back {
+  z-index: 1;
+  opacity: 0.42;
+  filter: brightness(0.55) saturate(0.7);
+  transform: translate(44px, 24px) scale(0.92) rotate(8deg);
+}
+
 .profile-stats-section {
   padding: 14px 20px 20px;
   background-color: #ffffff;

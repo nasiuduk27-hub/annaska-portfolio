@@ -1,0 +1,7 @@
+---
+import { readFileSync } from 'node:fs';
+
+const html = readFileSync('profile/index.html', 'utf-8');
+---
+
+<Fragment set:html={html} />

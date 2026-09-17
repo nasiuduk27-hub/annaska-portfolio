@@ -10,3 +10,5 @@ Thumbs.db
 # Logs & temp
 *.log
 opencode-tool-output/
+.astro/
+dist/

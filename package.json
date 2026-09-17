@@ -1,6 +1,15 @@
 {
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "tailwindcss -i ./src/input.css -o ./public/dist/output.css --minify && astro build",
+    "preview": "astro preview"
+  },
   "dependencies": {
     "@tailwindcss/cli": "^4.2.2",
+    "astro": "^7.3.3",
     "tailwindcss": "^4.2.2"
   }
 }

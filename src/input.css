@@ -181,6 +181,31 @@
     to { opacity: 1; transform: translateX(0); }
   }
 
+  .scroll-reveal-ready {
+    opacity: 0;
+    transform: translateY(34px);
+    transition: opacity 700ms ease, transform 700ms ease;
+  }
+
+  .scroll-reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    main > section,
+    #home > div > div > div:first-child,
+    #home article,
+    #project article,
+    #skills .grid > div,
+    .scroll-reveal-ready {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
   /* Page Transition */
   .page-transition {
     animation: pageFadeIn 0.8s ease-out forwards;

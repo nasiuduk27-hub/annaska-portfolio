@@ -23,6 +23,27 @@
       });
     }
 
+    var revealItems = document.querySelectorAll('main > section, #project article, #skills .grid > div, #home article, #home > div > div > div:first-child');
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('scroll-reveal-visible');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.16 });
+
+      revealItems.forEach(function (item) {
+        item.classList.add('scroll-reveal-ready');
+        observer.observe(item);
+      });
+    } else {
+      revealItems.forEach(function (item) {
+        item.classList.add('scroll-reveal-visible');
+      });
+    }
+
     syncThemeIcon();
   }
 

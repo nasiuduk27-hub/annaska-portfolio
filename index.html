@@ -120,6 +120,61 @@
 </header>
 
   <main>
+<style>
+  .profile-photo-card {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 24px 24px 0 0;
+    background: #ffffff;
+    box-shadow: 0 24px 45px rgb(17 24 39 / 0.22);
+    transition: opacity 360ms ease, transform 360ms ease, filter 360ms ease;
+    user-select: none;
+  }
+
+  .dark .profile-photo-card {
+    background: #111827;
+  }
+
+  .profile-photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    pointer-events: none;
+  }
+
+  .profile-photo-card.is-front {
+    z-index: 3;
+    opacity: 1;
+    filter: none;
+    transform: translateX(0) scale(1) rotate(0deg);
+  }
+
+  .profile-photo-card.is-middle {
+    z-index: 2;
+    opacity: 0.34;
+    filter: brightness(0.55) saturate(0.7);
+    transform: translate(18px, -8px) scale(0.96) rotate(3deg);
+  }
+
+  .profile-photo-card.is-back {
+    z-index: 1;
+    opacity: 0.18;
+    filter: brightness(0.42) saturate(0.65);
+    transform: translate(34px, -16px) scale(0.92) rotate(6deg);
+  }
+
+  @media (width <= 768px) {
+    .profile-photo-card.is-middle {
+      transform: translate(12px, -6px) scale(0.97) rotate(3deg);
+    }
+
+    .profile-photo-card.is-back {
+      transform: translate(22px, -12px) scale(0.94) rotate(6deg);
+    }
+  }
+</style>
 <!-- Home Section start -->
 <section id="home" class="pt-36 pb-20 min-h-screen flex items-center">
   <div class="container mx-auto px-4 lg:px-20">

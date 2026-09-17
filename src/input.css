@@ -262,15 +262,15 @@
 
 .profile-photo-card.is-middle {
   z-index: 2;
-  opacity: 0.72;
-  filter: brightness(0.72) saturate(0.8);
+  opacity: 0.34;
+  filter: brightness(0.55) saturate(0.7);
   transform: translate(18px, -8px) scale(0.96) rotate(3deg);
 }
 
 .profile-photo-card.is-back {
   z-index: 1;
-  opacity: 0.42;
-  filter: brightness(0.55) saturate(0.7);
+  opacity: 0.18;
+  filter: brightness(0.42) saturate(0.65);
   transform: translate(34px, -16px) scale(0.92) rotate(6deg);
 }
 

@@ -31,6 +31,16 @@
     h1, h2, h3, h4, h5, h6, .font-outfit {
       font-family: 'Outfit', sans-serif;
     }
+    main > section { animation: renderFadeUp 0.7s ease-out both; }
+    main > section:nth-of-type(2) { animation-delay: 80ms; }
+    main > section:nth-of-type(3) { animation-delay: 140ms; }
+    main > section:nth-of-type(4) { animation-delay: 200ms; }
+    #home > div > div > div:first-child { animation: renderFadeLeft 0.8s ease-out both; }
+    #home article { animation: renderFadeRight 0.8s ease-out 120ms both; }
+    #project article, #skills .grid > div { animation: renderFadeUp 0.7s ease-out both; }
+    @keyframes renderFadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes renderFadeLeft { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes renderFadeRight { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: translateX(0); } }
   </style>
 </head>
 
@@ -99,10 +109,10 @@
 
       <div class="flex items-center gap-3 ml-2 lg:ml-3">
         <button id="theme-toggle" type="button" onclick="var d=document.documentElement;var isDark=d.classList.toggle('dark');var a=document.getElementById('theme-toggle-dark-icon');var b=document.getElementById('theme-toggle-light-icon');if(a)a.classList.toggle('hidden',isDark);if(b)b.classList.toggle('hidden',!isDark);try{localStorage.setItem('theme',isDark?'dark':'light')}catch(e){}" class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white/70 text-text-dark transition duration-300 hover:border-brand-purple hover:text-brand-purple dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:hover:border-brand-purple dark:hover:text-brand-purple" aria-label="Toggle dark mode">
-          <svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
           </svg>
-          <svg id="theme-toggle-light-icon" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <svg id="theme-toggle-light-icon" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5 dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.36 6.36-1.42-1.42M7.06 7.06 5.64 5.64m12.72 0-1.42 1.42M7.06 16.94l-1.42 1.42" />
             <circle cx="12" cy="12" r="4" />
           </svg>

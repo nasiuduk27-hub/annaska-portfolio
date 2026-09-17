@@ -146,20 +146,20 @@
 @layer utilities {
   /* Scroll Reveal Animations */
   .reveal {
-    opacity: 0;
+    opacity: 1;
     transition: all 1s ease-out;
   }
 
   .reveal-up {
-    transform: translateY(50px);
+    transform: translateY(0);
   }
 
   .reveal-left {
-    transform: translateX(-50px);
+    transform: translateX(0);
   }
 
   .reveal-right {
-    transform: translateX(50px);
+    transform: translateX(0);
   }
 
   .reveal.active {

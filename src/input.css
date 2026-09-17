@@ -183,8 +183,8 @@
 
   .scroll-reveal-ready {
     opacity: 0;
-    transform: translateY(34px);
-    transition: opacity 700ms ease, transform 700ms ease;
+    transform: translateY(42px);
+    transition: opacity 850ms ease, transform 850ms ease;
   }
 
   .scroll-reveal-visible {

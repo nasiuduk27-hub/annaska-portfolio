@@ -44,7 +44,7 @@ const {
     #home > div > div > div:first-child { animation: renderFadeLeft 0.8s ease-out both; }
     #home article { animation: renderFadeRight 0.8s ease-out 120ms both; }
     #project article, #skills .grid > div { animation: renderFadeUp 0.7s ease-out both; }
-    .scroll-reveal-ready { opacity: 0; transform: translateY(34px); transition: opacity 700ms ease, transform 700ms ease; }
+    .scroll-reveal-ready { opacity: 0; transform: translateY(42px); transition: opacity 850ms ease, transform 850ms ease; }
     .scroll-reveal-visible { opacity: 1; transform: translateY(0); }
     @keyframes renderFadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes renderFadeLeft { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: translateX(0); } }
@@ -66,6 +66,47 @@ const {
   <slot />
   <Footer />
   <script is:inline src="/js/script.js"></script>
+  <script is:inline>
+    (function () {
+      function initScrollReveal() {
+        var items = document.querySelectorAll('main > section, #project article, #skills .grid > div, #home article, #home > div > div > div:first-child');
+        if (!items.length) return;
+
+        if (!('IntersectionObserver' in window)) {
+          items.forEach(function (item) {
+            item.classList.add('scroll-reveal-visible');
+          });
+          return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('scroll-reveal-visible');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+
+        items.forEach(function (item) {
+          item.classList.add('scroll-reveal-ready');
+        });
+
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            items.forEach(function (item) {
+              observer.observe(item);
+            });
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollReveal);
+      } else {
+        initScrollReveal();
+      }
+    })();
+  </script>
   <Fragment set:html={extraScripts} />
 </body>
 </html>

@@ -1,7 +1,25 @@
 ---
-import { readFileSync } from 'node:fs';
+import Layout from '../../layouts/Layout.astro';
+import { getMain } from '../../lib/html.js';
 
-const html = readFileSync('profile/index.html', 'utf-8');
+const main = getMain('profile/index.html');
+const extraHead = `
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    #special-place-map { z-index: 0; }
+    #special-place-map .leaflet-container { background: #101018; font-family: 'Inter', sans-serif; }
+    #special-place-map .leaflet-bar a { background: #151527; color: #fff; border-color: rgba(255,255,255,.12); }
+    #special-place-map .leaflet-bar a:hover { background: #7C3AED; color: #fff; }
+    #special-place-map .leaflet-control-attribution { background: rgba(10,10,20,.6); color: #8b8b9e; font-size: 10px; }
+    #special-place-map .leaflet-control-attribution a { color: #a78bfa; }
+    .special-div-icon { background: none; border: none; }
+    .special-pin { width: 26px; height: 26px; background: #7C3AED; border: 3px solid #fff; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 4px 14px rgba(124,58,237,.55); position: relative; }
+    .special-pin::after { content: ""; position: absolute; inset: 6px; background: #fff; border-radius: 50%; }
+  </style>
+`;
+const extraScripts = '<script src="/profile/map-config.js"></script><script src="/profile/map.js"></script>';
 ---
 
-<Fragment set:html={html} />
+<Layout active="profile" extraHead={extraHead} extraScripts={extraScripts}>
+  <Fragment set:html={main} />
+</Layout>

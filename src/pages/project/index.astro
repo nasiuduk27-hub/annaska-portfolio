@@ -1,7 +1,10 @@
 ---
-import { readFileSync } from 'node:fs';
+import Layout from '../../layouts/Layout.astro';
+import { getMain } from '../../lib/html.js';
 
-const html = readFileSync('project/index.html', 'utf-8');
+const main = getMain('project/index.html');
 ---
 
-<Fragment set:html={html} />
+<Layout active="project">
+  <Fragment set:html={main} />
+</Layout>

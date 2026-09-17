@@ -1,0 +1,51 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const {
+  title = 'Annaska Andrizky | Full Stack Developer',
+  active = 'home',
+  extraHead = '',
+  extraScripts = ''
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <link rel="icon" type="image/png" href="/img/favicon-nas.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script is:inline>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <link href="/dist/output.css" rel="stylesheet">
+  <style is:inline>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4, h5, h6, .font-outfit { font-family: 'Outfit', sans-serif; }
+  </style>
+  <Fragment set:html={extraHead} />
+</head>
+
+<body class="bg-white text-text-dark antialiased overflow-x-hidden transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100">
+  <Header active={active} />
+  <slot />
+  <Footer />
+  <script is:inline src="/dist/js/script.js"></script>
+  <Fragment set:html={extraScripts} />
+</body>
+</html>

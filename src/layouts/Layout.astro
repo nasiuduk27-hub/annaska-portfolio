@@ -39,7 +39,7 @@ const {
     h1, h2, h3, h4, h5, h6, .font-outfit { font-family: 'Outfit', sans-serif; }
     #home > div > div > div:first-child { animation: renderFadeLeft 0.8s ease-out both; }
     #home article { animation: renderFadeRight 0.8s ease-out 120ms both; }
-    .scroll-reveal-ready { opacity: 0 !important; transform: translateY(42px) !important; transition: opacity 850ms ease, transform 850ms ease; }
+    .scroll-reveal-ready { opacity: 0 !important; transform: translateY(56px) !important; transition: opacity 1050ms ease, transform 1050ms ease; }
     .scroll-reveal-visible { opacity: 1 !important; transform: translateY(0) !important; }
     @keyframes renderFadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes renderFadeLeft { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: translateX(0); } }
@@ -73,7 +73,7 @@ const {
 
         // #home dikeluarkan: hero sudah punya animasi load renderFadeLeft/Right.
         var raw = document.querySelectorAll(
-          'main > section:not(#home), #project article, #skills .grid > div'
+          'main > section:not(#home), #project article, #skills .grid > div, #story h2, #story p'
         );
         if (!raw.length) return;
 
@@ -95,7 +95,7 @@ const {
             entry.target.classList.add('scroll-reveal-visible');
             observer.unobserve(entry.target);
           });
-        }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+        }, { threshold: 0.1, rootMargin: '0px 0px -12% 0px' });
 
         items.forEach(function (item) {
           item.classList.add('scroll-reveal-ready');

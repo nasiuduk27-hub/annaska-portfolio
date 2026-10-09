@@ -90,7 +90,7 @@ const canonical = new URL(Astro.url.pathname, 'https://annaskaa.my.id').href;
 
         // #home dikeluarkan: hero sudah punya animasi load renderFadeLeft/Right.
         var raw = document.querySelectorAll(
-          'main > section:not(#home), #project article, #skills .grid > div, #story h2, #story p'
+          'main section:not(#home), #project article, #skills .grid > div, #story h2, #story p'
         );
         if (!raw.length) return;
 

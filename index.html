@@ -189,6 +189,22 @@
       transform: translate(22px, -12px) scale(0.94) rotate(6deg);
     }
   }
+
+  @keyframes passShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+  }
+
+  .pass-shake {
+    animation: passShake 320ms ease !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pass-shake {
+      animation: none !important;
+    }
+  }
 </style>
 <!-- Home Section start -->
 <section id="home" class="pt-36 pb-20 min-h-screen flex items-center">
@@ -236,6 +252,11 @@
         <div class="relative flex min-h-[620px] items-start justify-center lg:justify-end">
           <article class="relative z-20 w-full max-w-[360px] rounded-[24px] bg-white shadow-2xl shadow-gray-900/20 transition-transform duration-500 hover:scale-[1.02] dark:bg-gray-900 dark:shadow-black/40">
             <button id="profile-photo-slider" type="button" class="relative h-[390px] w-full text-left" aria-label="Change profile photo">
+              <div class="absolute top-3 inset-x-3 z-20 flex gap-1.5 pointer-events-none">
+                <span data-photo-dot="0" class="h-1 flex-1 rounded-full bg-white"></span>
+                <span data-photo-dot="1" class="h-1 flex-1 rounded-full bg-white/40"></span>
+                <span data-photo-dot="2" class="h-1 flex-1 rounded-full bg-white/40"></span>
+              </div>
               <div class="profile-photo-card is-front">
                 <img src="./img/annaska.png" alt="Annaskaa" draggable="false">
               </div>
@@ -261,6 +282,7 @@
                 <div class="flex items-center gap-3"><span class="text-lg">⚖️</span><span>Weight: 90 kg</span></div>
                 <div class="flex items-center gap-3"><span class="text-lg">💼</span><span>Job: Full Stack Developer</span></div>
                 <div class="flex items-center gap-3"><span class="text-lg">📍</span><span>Location: Jakarta, Indonesia</span></div>
+                <div class="flex items-center gap-3"><span class="text-lg">🎯</span><span>Looking for: My next dev team</span></div>
               </div>
 
               <div>
@@ -280,11 +302,38 @@
               <a href="profile/" aria-label="Go to profile page" class="know-me-btn">
                 Know Me Better <span class="know-me-arrow">→</span>
               </a>
+
+              <div class="flex items-center justify-center gap-4 pt-2">
+                <button id="btn-pass" type="button" aria-label="Pass" class="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-rose-500 shadow-md transition duration-300 hover:scale-110 active:scale-95 dark:border-gray-700 dark:bg-gray-900 dark:text-rose-400">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                </button>
+                <button id="btn-like" type="button" aria-label="Like" class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-brand-purple to-fuchsia-500 text-white shadow-lg shadow-purple-500/25 transition duration-300 hover:scale-110 active:scale-95">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </button>
+                <button id="btn-superlike" type="button" aria-label="Super Like" class="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-sky-500 shadow-md transition duration-300 hover:scale-110 active:scale-95 dark:border-gray-700 dark:bg-gray-900 dark:text-sky-400">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.955 6.36 6.97.79-5.26 4.64 1.5 6.86L12 17.27l-6.165 3.38 1.5-6.86-5.26-4.64 6.97-.79z"/></svg>
+                </button>
+              </div>
+              <p id="pass-note" class="hidden text-sm text-gray-500 text-center dark:text-gray-400">There is only one of him here — no take-backs.</p>
             </div>
           </article>
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <div id="match-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+    <div class="w-full max-w-sm rounded-[24px] bg-white p-8 text-center shadow-2xl dark:bg-gray-900">
+      <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-brand-purple to-fuchsia-500 text-white shadow-lg shadow-purple-500/25">
+        <svg class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </div>
+      <h3 id="match-title" class="font-outfit text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">It's a Match</h3>
+      <p id="match-copy" class="mt-4 text-base leading-relaxed text-gray-600 dark:text-gray-300">You liked Annaska's profile — good news, he is looking for his next dev team.</p>
+      <a href="contact/" class="mt-7 flex w-full items-center justify-center rounded-full bg-gradient-to-r from-brand-purple to-fuchsia-500 px-6 py-4 text-base font-extrabold text-white shadow-lg shadow-purple-500/25 transition duration-300 hover:scale-[1.03] active:scale-[0.98]">
+        Send a Message
+      </a>
+      <button id="match-close" type="button" class="mt-4 text-sm font-bold text-gray-400 transition hover:text-text-dark dark:text-gray-500 dark:hover:text-white">Keep Exploring</button>
     </div>
   </div>
 </section>
@@ -428,12 +477,20 @@
     (() => {
       const slider = document.getElementById('profile-photo-slider');
       const cards = document.querySelectorAll('.profile-photo-card');
+      const dots = document.querySelectorAll('[data-photo-dot]');
       const positions = ['is-front', 'is-middle', 'is-back'];
       let index = 0;
       let startX = 0;
       let suppressClick = false;
 
       if (!slider || cards.length === 0) return;
+
+      const updateDots = () => {
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle('bg-white', dotIndex === index);
+          dot.classList.toggle('bg-white/40', dotIndex !== index);
+        });
+      };
 
       const rotateCards = () => {
         index = (index + 1) % cards.length;
@@ -443,7 +500,11 @@
           card.classList.add(positions[(cardIndex - index + cards.length) % cards.length]);
           card.setAttribute('aria-hidden', cardIndex === index ? 'false' : 'true');
         });
+
+        updateDots();
       };
+
+      updateDots();
 
       slider.addEventListener('click', () => {
         if (suppressClick) {
@@ -464,6 +525,72 @@
         suppressClick = true;
         rotateCards();
       });
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const modal = document.getElementById('match-modal');
+      if (!modal) return;
+
+      const title = document.getElementById('match-title');
+      const copy = document.getElementById('match-copy');
+      const likeBtn = document.getElementById('btn-like');
+      const superBtn = document.getElementById('btn-superlike');
+      const closeBtn = document.getElementById('match-close');
+      const passBtn = document.getElementById('btn-pass');
+      const passNote = document.getElementById('pass-note');
+      const article = document.querySelector('#home article');
+
+      const defaultTitle = "It's a Match";
+      const defaultCopy = "You liked Annaska's profile — good news, he is looking for his next dev team.";
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const openModal = (t, c) => {
+        if (title) title.textContent = t;
+        if (copy) copy.textContent = c;
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      };
+
+      const closeModal = () => {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      };
+
+      if (likeBtn) likeBtn.addEventListener('click', () => openModal(defaultTitle, defaultCopy));
+      if (superBtn) superBtn.addEventListener('click', () => openModal("It's a Super Match", "A super like. Bold move — Annaska usually replies within a day."));
+
+      if (closeBtn) closeBtn.addEventListener('click', () => {
+        closeModal();
+        const story = document.getElementById('story');
+        if (story) story.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+      });
+
+      let passTimer = null;
+      if (passBtn && article) {
+        passBtn.addEventListener('click', () => {
+          article.style.animation = 'none';
+          article.classList.remove('pass-shake');
+          void article.offsetWidth;
+          article.classList.add('pass-shake');
+          article.addEventListener('animationend', () => article.classList.remove('pass-shake'), { once: true });
+
+          if (passNote) {
+            passNote.classList.remove('hidden');
+            clearTimeout(passTimer);
+            passTimer = setTimeout(() => passNote.classList.add('hidden'), 2400);
+          }
+        });
+      }
     })();
   </script>
   </main>

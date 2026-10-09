@@ -548,6 +548,10 @@
       const modal = document.getElementById('match-modal');
       if (!modal) return;
 
+      if (modal.parentNode !== document.body) {
+        document.body.appendChild(modal);
+      }
+
       const title = document.getElementById('match-title');
       const copy = document.getElementById('match-copy');
       const likeBtn = document.getElementById('btn-like');

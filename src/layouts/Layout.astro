@@ -64,15 +64,30 @@ const {
   <script is:inline>
     (function () {
       function initScrollReveal() {
-        var items = document.querySelectorAll('main > section, #project article, #skills .grid > div, #home article, #home > div > div > div:first-child');
-        if (!items.length) return;
-
-        if (!('IntersectionObserver' in window)) {
-          items.forEach(function (item) {
-            item.classList.add('scroll-reveal-visible');
-          });
+        // Jangan sembunyikan apa pun jika user meminta reduced motion,
+        // atau browser tidak mendukung IntersectionObserver.
+        if (!('IntersectionObserver' in window) ||
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           return;
         }
+
+        // #home dikeluarkan: hero sudah punya animasi load renderFadeLeft/Right.
+        var raw = document.querySelectorAll(
+          'main > section:not(#home), #project article, #skills .grid > div'
+        );
+        if (!raw.length) return;
+
+        // Buang target yang merupakan ancestor dari target lain.
+        // Contoh: section#project gugur karena di dalamnya ada #project article,
+        // section#skills gugur karena di dalamnya ada #skills .grid > div.
+        // Section tanpa target di dalamnya (mis. #story, #contact, section di
+        // halaman profile) tetap menjadi target sebagai satu blok.
+        var items = Array.prototype.filter.call(raw, function (item) {
+          return !Array.prototype.some.call(raw, function (other) {
+            return other !== item && item.contains(other);
+          });
+        });
+        if (!items.length) return;
 
         var observer = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
@@ -80,7 +95,7 @@ const {
             entry.target.classList.add('scroll-reveal-visible');
             observer.unobserve(entry.target);
           });
-        }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+        }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
 
         items.forEach(function (item) {
           item.classList.add('scroll-reveal-ready');
